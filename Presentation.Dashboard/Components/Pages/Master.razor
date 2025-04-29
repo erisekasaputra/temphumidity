@@ -1,0 +1,318 @@
+﻿@page "/Master/Sensor"
+@using System.Diagnostics
+@using Assets.Domain.Domain.Entities
+@using Assets.Domain.Services
+@using Presentation.Dashboard.Applications.Dtos
+@using Presentation.Dashboard.Applications.Interfaces
+@using Presentation.Dashboard.Applications.Services
+@using Microsoft.EntityFrameworkCore
+@using Presentation.Dashboard.Infrastructures
+
+@rendermode InteractiveServer
+
+@inject IDbContextFactory<AppDbContext> DbContextFactory
+@inject IJSRuntime JSRuntime 
+@inject IRedisCacheService RedisCacheService
+@inject ShiftService ShiftService
+
+<PageTitle>Master Sensor</PageTitle> 
+
+<h3>Sensor Data</h3>
+<button class="btn btn-primary" @onclick="OpenAddModal">
+    New Sensor <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span>
+</button>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Serial Number</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Unit</th>
+            <th>UCL</th>
+            <th>LCL</th>
+            <th>Warning UCL</th>
+            <th>Warning LCL</th>
+            <th>Actions</th>
+        </tr> 
+    </thead>
+    <tbody>
+    @foreach (var data in sensorDataList)
+    {
+        <tr>
+            <td>@data.Id</td>
+            <td>@data.SerialNumber</td> 
+            <td>@data.Name</td>
+            <td>@data.Location</td>
+            <td>@data.Unit</td> 
+            <td>@data.UCL</td> 
+            <td>@data.LCL</td> 
+            <td>@data.WarningUpperLevel</td> 
+            <td>@data.WarningLowerLevel</td> 
+            <td>
+                <button class="btn btn-warning btn-sm" @onclick="() => OpenEditModal(data)">Edit</button> 
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@if (isAddModalOpen)
+{
+    <div class="modal show d-block" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">New Sensor</h5>
+                    <button type="button" class="close" @onclick="() => isAddModalOpen = false">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group mt-2">
+                        <label>Serial Number</label>
+                        <input type="text" class="form-control" @bind="currentSensorData.SerialNumber" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Name</label>
+                        <input type="text" class="form-control" @bind="currentSensorData.Name" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Location</label>
+                        <input type="text" class="form-control" @bind="currentSensorData.Location" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Unit</label>
+                        <input type="text" class="form-control" @bind="currentSensorData.Unit" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>UCL</label>
+                        <input type="number" class="form-control" @bind="currentSensorData.UCL" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>LCL</label>
+                        <input type="number" class="form-control" @bind="currentSensorData.LCL" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Warning UCL</label>
+                        <input type="number" class="form-control" @bind="currentSensorData.WarningUpperLevel" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Warning LCL</label>
+                        <input type="number" class="form-control" @bind="currentSensorData.WarningLowerLevel" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" disabled="@isAdding" @onclick="SaveNewData">@(isAdding ? "Saving..." : "Save")</button>
+                    <button class="btn btn-secondary" @onclick="() => isAddModalOpen = false">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (isEditModalOpen)
+{
+    <div class="modal show d-block" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Data</h5>
+                    <button type="button" class="close" @onclick="() => isEditModalOpen = false">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group mt-2">
+                        <label>Serial Number</label>
+                        <input type="text" class="form-control" @bind="currentSensorData.SerialNumber" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Name</label>
+                        <input type="text" class="form-control" @bind="currentSensorData.Name" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Location</label>
+                        <input type="text" class="form-control" @bind="currentSensorData.Location" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Unit</label>
+                        <input type="text" class="form-control" @bind="currentSensorData.Unit" />
+                    </div>
+                    <div class="form-group mt-2"> 
+                        <label>UCL</label>
+                        <input type="number" class="form-control" @bind="currentSensorData.UCL" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>LCL</label>
+                        <input type="number" class="form-control" @bind="currentSensorData.LCL" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Warning UCL</label>
+                        <input type="number" class="form-control" @bind="currentSensorData.WarningUpperLevel" />
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Warning LCL</label>
+                        <input type="number" class="form-control" @bind="currentSensorData.WarningLowerLevel" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" disabled="@isUpdating" @onclick="SaveEditedData">@(isUpdating ? "Updating..." : "Update")</button>
+                    <button class="btn btn-secondary" @onclick="() => isEditModalOpen = false">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    function showAlert(message)
+    {
+        alert(message);
+    }
+</script>
+
+
+
+@code {
+    private bool isUpdating = false;
+    private bool isAdding = false;
+    private List<SensorConfig> sensorDataList = new();
+    private SensorConfig currentSensorData = new();
+    private bool isAddModalOpen = false;
+    private bool isEditModalOpen = false;
+
+    protected override void OnInitialized()
+    {
+        Task.Run(LoadData); 
+    }
+
+    private async Task<List<SensorConfig>> LoadSensorsConfig()
+    {
+        using var context = DbContextFactory.CreateDbContext();
+        var sensorDataService = new SensorDataService(context, ShiftService, RedisCacheService); 
+        var sensors = await sensorDataService.GetAllAsync();
+        return sensors;
+    }
+    
+
+
+    private async Task LoadData()
+    {
+        await InvokeAsync(async() => {
+            sensorDataList = await LoadSensorsConfig();
+            StateHasChanged();
+        });
+    }
+
+    private void OpenAddModal()
+    {
+        isAdding = false;
+        currentSensorData = SensorConfig.Create("", "", "", "", 0, 0, 0, 0);
+        isAddModalOpen = true;
+    }
+
+    private void OpenEditModal(SensorConfig data)
+    {
+        if (data.Id != currentSensorData.Id)
+        {
+            isUpdating = false;
+        } 
+
+        currentSensorData = data;
+        isEditModalOpen = true;
+    }
+
+    private async Task SaveNewData()
+    {
+        await InvokeAsync(() => 
+        {
+           isAdding = true;
+           StateHasChanged();
+        });
+
+        try
+        {
+            using var context = DbContextFactory.CreateDbContext();
+            var sensorDataService = new SensorDataService(context, ShiftService, RedisCacheService);  
+            
+            await sensorDataService.AddSensorConfigAsync(new CreateSensorConfigRequestDto(
+                currentSensorData.Name,
+                currentSensorData.Location,
+                currentSensorData.Unit,
+                currentSensorData.SerialNumber,
+                currentSensorData.UCL,
+                currentSensorData.LCL,
+                currentSensorData.WarningUpperLevel,
+                currentSensorData.WarningLowerLevel
+            ));
+
+            isAddModalOpen = false;
+            await LoadData();
+        }
+        catch(Exception ex)
+        {
+            await ShowAlert(ex.Message, ex.InnerException?.Message);
+        }
+        finally
+        {
+            await InvokeAsync(() => 
+            {
+                isAdding = false;
+                StateHasChanged();
+            });
+        }
+    }
+
+    
+    private async Task ShowAlert(string message, string? innerException)
+    {
+        await JSRuntime.InvokeVoidAsync("showAlert", $"{message}. {(innerException is null ? "" : $"[Error Detail: {innerException}]" )}");
+    }
+
+
+    private async Task SaveEditedData()
+    {
+        await InvokeAsync(() => 
+        {
+           isUpdating = true;
+           StateHasChanged();
+        });
+        await Task.Delay(1000);
+        try
+        {
+            using var context = DbContextFactory.CreateDbContext();
+            var sensorDataService = new SensorDataService(context, ShiftService, RedisCacheService);  
+            await sensorDataService.UpdateSensorConfigAsync(currentSensorData.Id, new CreateSensorConfigRequestDto(
+                currentSensorData.Name,
+                currentSensorData.Location,
+                currentSensorData.Unit,
+                currentSensorData.SerialNumber,
+                currentSensorData.UCL,
+                currentSensorData.LCL,
+                currentSensorData.WarningUpperLevel,
+                currentSensorData.WarningLowerLevel
+            ));
+
+            isEditModalOpen = false;
+            await LoadData();
+        }
+        catch(Exception ex)
+        { 
+            await ShowAlert(ex.Message, ex.InnerException?.Message);
+        }
+        finally 
+        {
+            await InvokeAsync(() => 
+            {
+                isUpdating = false;
+                StateHasChanged();
+            });
+        }
+    }
+
+    private async Task DeleteData(Guid id)
+    { 
+        using var context = DbContextFactory.CreateDbContext();
+        var sensorDataService = new SensorDataService(context, ShiftService, RedisCacheService);  
+        await sensorDataService.DeleteSensorConfig(id);
+        await LoadData();
+    }
+}

@@ -1,0 +1,317 @@
+﻿@page "/history"
+@using Assets.Domain.Domain.Entities
+@using Assets.Domain.Domain.Enums
+@using Assets.Domain.Services
+@using Presentation.Dashboard.Applications.Interfaces
+@using Presentation.Dashboard.Applications.Services
+@using Presentation.Dashboard.SeedWorks
+@using Microsoft.EntityFrameworkCore
+@using Presentation.Dashboard.Infrastructures
+@using System.Text.RegularExpressions
+
+@rendermode InteractiveServer
+@inject IDbContextFactory<AppDbContext> DbContextFactory 
+@inject IRedisCacheService RedisCacheService
+@inject ShiftService ShiftService
+
+<PageTitle>History</PageTitle>
+
+<h3>Filter</h3>
+<div class="d-flex align-items-center gap-2">
+    <label class="me-2">Sensor:</label> 
+    <select @bind="selectedSensorId" class="form-control w-auto" >
+        <option value="">-- Select Sensor --</option>
+        @foreach(var item in _sensorDataList ?? [])
+        {
+            <option value="@item.Id">@item.Name [S/N: @item.SerialNumber] [Location: @item.Location]</option>
+        }   
+    </select> 
+    <select @bind="selectedShiftName" class="form-control w-auto" > 
+        <option value="">-- Select Shift --</option>
+        @foreach(var item in ShiftService.Shifts ?? [])
+        {
+            <option value="@item.Name">Shift @item.Name</option>
+        }   
+    </select>
+    <select @bind="selectedAlertType" class="form-control w-auto" > 
+        <option value="">-- Select NG Type --</option>
+        @foreach(var item in Enum.GetValues(typeof(AlertType)).Cast<AlertType>())
+        {
+            <option value="@item">@(GetAlertTypeDisplayName(item))</option>
+        }   
+    </select>
+
+    <label class="me-2">Start Date:</label>
+    <input type="datetime-local" @bind="startDate" class="form-control w-auto" />
+    
+    <label class="ms-3 me-2">End Date:</label>
+    <input type="datetime-local" @bind="endDate" class="form-control w-auto"/>
+    
+    <button class="btn btn-success ms-3" @onclick="ApplyFilter">Apply</button>
+    <button class="btn btn-success ms-3" @onclick="ShowModal">Download Report</button>
+</div>
+
+
+@if (sensorValues == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <p class="mt-3">Total Rows: @totalRows | Page: @currentPage of @totalPages</p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Serial Number</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Shift</th>
+                <th>Location</th> 
+                <th>Value</th> 
+                <th>Alert</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sensor in sensorValues)
+            {
+                <tr>
+                    <td>@sensor.SensorId</td>
+                    <td>@sensor.SerialNumber</td>
+                    <td>@sensor.CreatedAtUtc.ToJakarta("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>@sensor.SensorName</td>
+                    <td>Shift @sensor.ShiftName</td>
+                    <td>@sensor.Location</td>
+                    <td>@sensor.Value @sensor.Unit</td>
+                    <td>@sensor.Alert.Type.ToString().ToUpper()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="d-flex gap-2">
+        <button class="btn btn-primary" @onclick="PreviousPage" disabled="@(!HasPreviousPage)">Previous</button>
+        <button class="btn btn-primary" @onclick="NextPage" disabled="@(!HasNextPage)">Next</button>
+    </div>
+}
+
+<!-- Modal -->
+<div class="modal fade @(isModalVisible ? "show d-block" : "")" tabindex="-1" style="background-color: rgba(0,0,0,0.5);" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Generate Monthly Report</h5>
+                <button type="button" class="btn-close" @onclick="HideModal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group mb-3">
+                    <label>Temperature Sensor:</label>
+                    <select @bind="reportOption1" class="form-control">
+                        <option value="">-- Choose Temperature Sensor --</option>
+                        @foreach(var item in _sensorDataList ?? [])
+                        {
+                            @if(item.Name.ToLower().Includes("temp"))
+                            {
+                                <option value="@item.Id">@item.Name [S/N: @item.SerialNumber] [Location: @item.Location]</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label>Humidity Sensor:</label>
+                    <select @bind="reportOption2" class="form-control">
+                        <option value="">-- Choose Humidity Sensor --</option>
+                        @if(item.Name.ToLower().Includes("humi"))
+                        {
+                            <option value="@item.Id">@item.Name [S/N: @item.SerialNumber] [Location: @item.Location]</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label>Month & Year:</label>
+                    <input type="month" class="form-control" @bind="reportMonthYear" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" @onclick="HideModal">Close</button>
+                <button class="btn btn-primary" @onclick="GenerateReport">Generate</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.getSelectedValues = function (sel) {
+        var results = [];
+        var i;
+
+        for (i=0; i<sel.options.length; i++) {
+            if (sel.options[i].selected){
+                results[results.length] = sel.options[i].value;
+            }
+        }
+
+        return results; 
+    }
+</script>
+
+
+
+@code {
+    private string GetAlertTypeDisplayName(AlertType type)
+    {
+        return Regex.Replace(type.ToString(), "(\\B[A-Z])", " $1");
+    }
+
+    private List<SensorConfig>? _sensorDataList = null; 
+    private string selectedSensorId = string.Empty;
+    private string selectedShiftName = string.Empty;
+    private string selectedAlertType = string.Empty;
+    private Guid? selectedSensorIdGuid 
+    {
+        get 
+        {
+            if (string.IsNullOrEmpty(selectedSensorId))
+            {
+                return null;
+            }
+
+            if (Guid.TryParse(selectedSensorId, out var id))
+            { 
+                return id;
+            }
+            
+            return null;
+        } 
+    }
+    private int? selectedShiftNameInt 
+    {
+        get 
+        {
+            if (string.IsNullOrEmpty(selectedShiftName))
+            {
+                return null;
+            }
+
+            if (int.TryParse(selectedShiftName, out var id))
+            { 
+                return id;
+            }
+            
+            return null;
+        } 
+    }
+    private AlertType? selectedAlertTypeEnum 
+    {
+        get 
+        {
+            if (string.IsNullOrEmpty(selectedShiftName))
+            {
+                return null;
+            }
+
+            try
+            {
+                var type = (AlertType) Enum.Parse(typeof(AlertType), selectedAlertType);
+            
+                return type;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        } 
+    }
+    private List<SensorValue>? sensorValues;
+    private DateTime? startDate;
+    private DateTime? endDate;
+    private int currentPage = 1;
+    private const int pageSize = 20;
+    private int totalRows;
+    private int totalPages => (int)Math.Ceiling((double)totalRows / pageSize); 
+    private bool HasPreviousPage => currentPage > 1;
+    private bool HasNextPage => currentPage < totalPages; 
+    
+    protected override void OnInitialized()
+    {
+        InvokeAsync(async () => { 
+            _sensorDataList = null;
+            _sensorDataList = await LoadSensorsConfig(); 
+            StateHasChanged();
+        }); 
+
+        Task.Run(LoadData);
+    }
+
+    private async Task<List<SensorConfig>> LoadSensorsConfig()
+    { 
+        using var context = DbContextFactory.CreateDbContext(); // ✅ Context baru
+        var sensorDataService = new SensorDataService(context, ShiftService, RedisCacheService);
+        var result = await sensorDataService.GetAllAsync();
+        return result;
+    }
+
+    private async Task LoadData()
+    {
+        await InvokeAsync( async () => {
+            using var context = DbContextFactory.CreateDbContext();
+            var sensorDataService = new SensorDataService(context, ShiftService, RedisCacheService);
+            var result = await sensorDataService.GetPaginatedSensorValues(currentPage, pageSize, selectedSensorIdGuid, startDate, endDate, selectedShiftNameInt, selectedAlertTypeEnum);
+            sensorValues = result.result;
+            totalRows = result.totalCount; 
+            StateHasChanged();
+        });
+    }
+
+    private bool isModalVisible = false;
+    private string reportOption1 = string.Empty;
+    private string reportOption2 = string.Empty;
+    private string reportMonthYear = string.Empty;
+
+    
+    private void ShowModal()
+    {
+        isModalVisible = true;
+    }
+
+    private void HideModal()
+    {
+        isModalVisible = false;
+    }
+
+    private async Task GenerateReport()
+    {
+        isModalVisible = false;  
+        await Export(); 
+    }
+
+
+    private async Task Export()
+    {
+        await Task.Delay(100);
+    }
+
+    private async Task ApplyFilter()
+    {
+        currentPage = 1; // Reset ke halaman pertama setelah filter diterapkan
+        await LoadData();
+    }
+
+    private async Task NextPage()
+    {
+        if (HasNextPage)
+        {
+            currentPage++;
+            await LoadData();
+        }
+    }
+
+    private async Task PreviousPage()
+    {
+        if (HasPreviousPage)
+        {
+            currentPage--;
+            await LoadData();
+        }
+    }
+}

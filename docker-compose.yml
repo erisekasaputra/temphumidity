@@ -1,0 +1,103 @@
+services:
+  redis-service:
+    image: redis:latest
+    container_name: redis-service
+    ports: 
+      - "6379:6379"
+    restart: always
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 5
+      start_period: 10s
+      timeout: 5s 
+
+  emqx-service:
+    image: emqx:latest
+    container_name: emqx-service
+    ports:
+      - "1883:1883"
+      - "8083:8083"
+      - "18083:18083"
+    environment:
+      - EMQX_NAME=emqx
+      - EMQX_HOST=0.0.0.0
+      - EMQX_LISTENERS__MQTT__DEFAULT__BIND=0.0.0.0:1883
+    restart: always
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:18083/status"]
+      interval: 5s
+      retries: 5
+      start_period: 10s
+      timeout: 5s
+  # streamgate-worker:
+  #   build:
+  #     context: .
+  #     dockerfile: StreamGate.Worker/Dockerfile 
+  #   environment:
+  #     - DOTNET_ENVIRONMENT=Production
+  #     - ASPNETCORE_ENVIRONMENT=Production 
+  #     - Redis__Configuration=redis-service:6379
+  #     - Cassandra__ContactPoint=cassandra-service
+  #     - MQTT__BrokerAddress=emqx-service
+  #     - MQTT__Port=1883
+  #     - ConnectionStrings__DefaultConnection=Server=mssql-service;Database=temp_humidity;User Id=sa;Password=000328Eris@;TrustServerCertificate=True
+  #   depends_on:
+  #     redis-service:
+  #       condition: service_healthy 
+  #     emqx-service:
+  #       condition: service_healthy
+  #   networks:
+  #     - app-network
+  #   restart: always
+
+  # presentation-dashboard:
+  #   build:
+  #     context: .
+  #     dockerfile: Presentation.Dashboard/Dockerfile
+  #   ports:
+  #     - "5007:5007" 
+  #   environment:
+  #     - DOTNET_ENVIRONMENT=Production
+  #     - ASPNETCORE_ENVIRONMENT=Production
+  #     - ASPNETCORE_URLS=http://+:5007
+  #     - Redis__Configuration=redis-service:6379
+  #     - Cassandra__ContactPoint=cassandra-service
+  #     - MQTT__BrokerAddress=emqx-service
+  #     - MQTT__Port=1883
+  #     - ConnectionStrings__DefaultConnection=Server=mssql-service;Database=temp_humidity;User Id=sa;Password=000328Eris@;TrustServerCertificate=True
+  #   depends_on:
+  #     redis-service:
+  #       condition: service_healthy 
+  #     emqx-service:
+  #       condition: service_healthy
+  #   networks:
+  #     - app-network
+  #   restart: always
+
+  mssql-service:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql-service
+    restart: always
+    environment:
+      SA_PASSWORD: "000328Eris@"  # Ganti dengan password yang kuat
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Express"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    networks:
+      - app-network
+
+volumes: 
+  mssql_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

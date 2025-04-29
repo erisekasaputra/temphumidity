@@ -1,0 +1,350 @@
+﻿@page "/Monitor" 
+
+@using Assets.Domain.Domain.Entities
+@using Assets.Domain.Domain.Enums
+@using Assets.Domain.Services
+@using Presentation.Dashboard.Applications.Interfaces
+@using Presentation.Dashboard.Applications.Services
+@using System.Text.Json
+@using Presentation.Dashboard.SeedWorks
+@using Microsoft.EntityFrameworkCore
+@using Presentation.Dashboard.Infrastructures
+@using MudBlazor
+
+@rendermode InteractiveServer
+
+@inject IDbContextFactory<AppDbContext> DbContextFactory
+@inject MqttService MqttService
+@inject IJSRuntime JSRuntime 
+@inject IRedisCacheService RedisCacheService
+@inject ShiftService ShiftService
+@inject NavigationManager NavManager
+
+<PageTitle>Dashboard | Monitor</PageTitle> 
+
+@if (_sensors.Count == 0)
+{
+    <div class="custom-container">
+        <MudProgressCircular Indeterminate="true" />
+        <p>Waiting Sensors Data...</p>
+    </div> 
+}
+else 
+{
+    <div class="row">
+
+        <div class="col-lg-12 text-center mt-1 border border-dark border-4 position-relative"> 
+            <button class="btn btn-sm position-absolute start-0 top-50 translate-middle-y ms-2" @onclick="HandleBackToDashboard">
+                Back to Dashboard
+            </button> 
+            <h1 style="font-size:3vh" id="date-time-current">Current Time</h1>
+        </div> 
+
+        @foreach (var sensor in _sensors)
+        { 
+            <div class="col-lg-@(_sensors.Count == 1 ? "12" : (_sensors.Count == 2 ? "6" : (_sensors.Count == 3 ? "4" : "3"))) border border-dark border-4 mt-2">
+                <div class="text-center">
+                    <div class="text-light 
+                            @(sensor.Value.Alert.Type == AlertType.LCLExceeded || sensor.Value.Alert.Type == AlertType.UCLExceeded 
+                                ? "blinking-dark-danger" 
+                                : "bg-dark")">
+                        <label style="font-size:6vh;text-transform: uppercase">
+                            <strong>@sensor.Value.Name</strong>
+                        </label> 
+                        <hr>
+                        <label class="title text-light" style="font-size:1.5vh;font-weight:bold;text-transform: uppercase;">ID : @sensor.Value.SensorId</label>
+                        <br>
+                        <label class="title text-light" style="font-size:1.5vh;font-weight:bold;text-transform: uppercase;">S/N: @sensor.Value.SerialNumber</label>
+                        <br>
+                        <label class="title text-light" style="font-size:1.5vh;font-weight:bold;text-transform: uppercase;">LOCATION: @sensor.Value.Location</label> 
+                    </div>  
+                    <label style="font-size:10vh"><strong>@sensor.Value.Values.Last().Value @sensor.Value.Values.Last().Unit</strong></label>  
+                </div>
+                <canvas id="sensorChart-@sensor.Key"></canvas> 
+                <div class="mt-3 text-center ">
+                    <label>Histories of Last Three Shift</label> 
+                </div>     
+
+                @if (_aggregatedSensorShiftResults.ContainsKey(sensor.Value.SensorId))
+                {
+                    @foreach(var sensorShiftData in _aggregatedSensorShiftResults[sensor.Value.SensorId])
+                    {   
+                        <div class="flex mb-2">
+                            <label class="mr-2" style="font-size: 2vh;font-weight:bold;">
+                                Shift @sensorShiftData.ShiftName [@sensorShiftData.SensorShiftResults.FirstOrDefault()?.DateStart.CeilSeconds().ToString("dd-MM-yyyy")]
+                            </label>
+                        </div>
+
+                        <table class="table table-bordered table-sm table-striped">
+                            <tr>
+                                <th class="align-middle text-center">Time</th> 
+                                @foreach(var shiftData in sensorShiftData.SensorShiftResults)
+                                {
+                                    <td class="align-middle text-center"> 
+                                        <div class="vertical-text">@shiftData.DateStart.CeilSeconds().ToString("HH:mm") - @shiftData.DateEnd.CeilSeconds().ToString("HH:mm")</div></td> 
+                                }
+                            </tr>
+                            <tr>
+                                <th class="align-middle text-center">Value</th>
+                                @foreach(var shiftData in sensorShiftData.SensorShiftResults)
+                                {
+                                    <td class="align-middle text-center @(shiftData.ErrorStatus == 1 ? "bg-danger text-light" : "bg-success text-light")"> 
+                                        @shiftData.AverageOrErrorValue.ToString("F2") @shiftData.Unit</td> 
+                                }
+                            </tr>
+                        </table> 
+                    }  
+                }
+                else
+                {
+                    <label>History is unavailable</label>
+                } 
+            </div>
+        }  
+    </div>
+}
+ 
+<script>
+    window.charts = {};
+
+    window.updateChart = (canvasId, labels, data, ucl, lcl, warningUcl, warningLcl) => {
+        var ctx = document.getElementById(canvasId).getContext('2d');
+
+        if (!window.charts) {
+            window.charts = {};
+        }
+
+        if (window.charts[canvasId]) {
+            // Update existing chart
+            window.charts[canvasId].data.labels = labels;
+            window.charts[canvasId].data.datasets[0].data = data;
+            window.charts[canvasId].data.datasets[1].data = Array(labels.length).fill(ucl);
+            window.charts[canvasId].data.datasets[2].data = Array(labels.length).fill(lcl);
+            window.charts[canvasId].data.datasets[3].data = Array(labels.length).fill(warningUcl);
+            window.charts[canvasId].data.datasets[4].data = Array(labels.length).fill(warningLcl);
+            window.charts[canvasId].update();
+        } else {
+            // Create new chart
+            window.charts[canvasId] = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Sensor Data',
+                            data: data,
+                            borderColor: 'blue',
+                            backgroundColor: 'rgba(0, 0, 255, 0.1)',
+                            borderWidth: 1, 
+                            pointRadius: 0,
+                            fill: true
+                        },
+                        {
+                            label: 'UCL',
+                            data: Array(labels.length).fill(ucl),
+                            borderColor: 'red',
+                            borderDash: [5, 5],
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            fill: false
+                        },
+                        {
+                            label: 'LCL',
+                            data: Array(labels.length).fill(lcl),
+                            borderColor: 'red',
+                            borderDash: [5, 5],
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            fill: false
+                        },
+                        {
+                            label: 'Warning UCL',
+                            data: Array(labels.length).fill(warningUcl),
+                            borderColor: 'orange',
+                            borderDash: [5, 5],
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            fill: false
+                        },
+                        {
+                            label: 'Warning LCL',
+                            data: Array(labels.length).fill(warningLcl),
+                            borderColor: 'orange',
+                            borderDash: [5, 5],
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    animation: false,
+                    responsive: true,
+                    maintainAspectRation: false
+                }
+            });
+        }
+    };
+
+
+    setInterval(() => {
+        var elementCurrentTime = document.getElementById('date-time-current')
+
+        const jakartaTime = new Date().toLocaleString("en-US", {
+            timeZone: "Asia/Jakarta",
+            hour12: false,
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        })
+
+        if (elementCurrentTime != null){
+            elementCurrentTime.innerHTML = jakartaTime
+        }
+    }, 1000);
+</script>
+
+@code {   
+    private readonly CancellationTokenSource _cancellationTokenSource = new();
+    private PeriodicTimer? _timer; 
+    private Dictionary<Guid, List<AggregatedSensorShiftResult>> _aggregatedSensorShiftResults = []; 
+    private Dictionary<string, Sensor> _sensors = new(); // key sensorId, value Sensor
+    private List<Guid> _monitoredSensors = []; 
+ 
+    private Dictionary<Guid, Action<string, string, string>> Callbacks = new(); // Callback per sensor
+    private HashSet<Guid> SubscribedSensors = new(); // Sensor yang sedang dipantau
+
+    private void HandleBackToDashboard()
+    {
+        NavManager.NavigateTo("/");
+    }
+    private void SubscribeToSensor(Guid sensorId)
+    {  
+        if (SubscribedSensors.Contains(sensorId))
+        { 
+            return;
+        }
+
+        var callback = (string topic, string sensorIdStr, string payload) => HandleMqttMessage(topic, sensorIdStr, payload);
+        Callbacks[sensorId] = callback;
+        MqttService.Subscribe(sensorId, callback);
+        SubscribedSensors.Add(sensorId); 
+    } 
+
+    public async Task GetDataSensor(Guid sensorId)
+    {
+        using var context = DbContextFactory.CreateDbContext();
+        var sensorDataService = new SensorDataService(context, ShiftService, RedisCacheService);
+        var sensorData = await sensorDataService.GetShiftSensorValuesAsync(sensorId);   
+        _aggregatedSensorShiftResults[sensorId] = sensorData;
+    }
+
+    protected override void OnInitialized()
+    { 
+        InvokeAsync(async () => 
+        { 
+            var uri = NavManager.ToAbsoluteUri(NavManager.Uri); 
+            if (Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query).TryGetValue("sensors", out var idsValue))
+            { 
+                _monitoredSensors = idsValue.ToString().Split(',').Select(Guid.Parse).ToList(); 
+            }
+            
+            foreach(var id in _monitoredSensors)
+            {
+                SubscribeToSensor(id);
+            }
+            
+            foreach (var sensor in _sensors)
+            {
+                await RenderChart(sensor.Key, sensor.Value);
+            } 
+
+            foreach(var id in _monitoredSensors)
+            { 
+                await GetDataSensor(id);   
+            }
+            
+            _timer = new PeriodicTimer(TimeSpan.FromSeconds(120));
+            _ = Task.Run(RunGetHistory);
+
+            StateHasChanged();
+        }); 
+    } 
+    
+    private async Task RunGetHistory()
+    {
+        try
+        {
+            while (_timer != null && await _timer.WaitForNextTickAsync(_cancellationTokenSource.Token))
+            { 
+                await InvokeAsync(async () => 
+                {
+                    foreach(var id in _monitoredSensors)
+                    { 
+                        await GetDataSensor(id);   
+                    }
+                    StateHasChanged();
+                }); 
+            }   
+        }
+        catch (OperationCanceledException)
+        { 
+        }
+    }
+
+    private async Task RenderChart(string sensorId, Sensor sensor)
+    { 
+        try
+        {  
+            var values = sensor.Values.OrderBy(x => x.CreatedAtUtc).ToList();
+
+            var labels = values.Select(d => d.CreatedAtUtc.ToJakarta("HH:mm:ss")).ToArray();
+            var data = values.Select(d => d.Value).ToArray();
+            var ucl = values.Select(d => d.Config?.UCL ?? 0).ToArray();
+            var lcl = values.Select(d => d.Config?.LCL ?? 0).ToArray();
+            var warningUcl = values.Select(d => d.Config?.WarningUpperLevel ?? 0).ToArray();
+            var warningLcl = values.Select(d => d.Config?.WarningLowerLevel ?? 0).ToArray();
+ 
+            await JSRuntime.InvokeVoidAsync("updateChart", $"sensorChart-{sensorId}", labels, data, ucl, lcl, warningUcl, warningLcl);
+        }
+        catch (Exception)
+        { 
+        }
+    }
+
+
+    private void HandleMqttMessage(string topic, string sensorId, string payload)
+    {
+        InvokeAsync(async() =>
+        {      
+            var sensor = JsonSerializer.Deserialize<Sensor>(payload); 
+            if (sensor is not null)
+            {
+                _sensors[sensorId] = sensor; 
+                await RenderChart(sensorId, sensor); 
+            }
+
+            StateHasChanged();
+        });
+    }
+
+    private void UnsubscribeFromSensor(Guid sensorId)
+    { 
+        MqttService.Unsubscribe(sensorId, Callbacks[sensorId]);
+        Callbacks.Remove(sensorId);
+        SubscribedSensors.Remove(sensorId);
+        _sensors.Remove(sensorId.ToString());  
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {  
+        foreach (var id in SubscribedSensors.ToList()) // Copy sebelum iterasi untuk mencegah error
+        {
+            UnsubscribeFromSensor(id);
+        }
+    }
+}   

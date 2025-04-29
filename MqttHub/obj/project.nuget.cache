@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "w8fIvi6Gh6Q=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\MqttHub\\MqttHub.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.1\\microsoft.extensions.configuration.abstractions.9.0.1.nupkg.sha512",
+    "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.1\\microsoft.extensions.dependencyinjection.abstractions.9.0.1.nupkg.sha512",
+    "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.1\\microsoft.extensions.primitives.9.0.1.nupkg.sha512",
+    "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\mqttnet\\5.0.1.1416\\mqttnet.5.0.1.1416.nupkg.sha512",
+    "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\mqttnet.aspnetcore\\5.0.1.1416\\mqttnet.aspnetcore.5.0.1.1416.nupkg.sha512",
+    "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\mqttnet.extensions.topictemplate\\5.0.1.1416\\mqttnet.extensions.topictemplate.5.0.1.1416.nupkg.sha512",
+    "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\mqttnet.server\\5.0.1.1416\\mqttnet.server.5.0.1.1416.nupkg.sha512",
+    "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\polly\\8.5.1\\polly.8.5.1.nupkg.sha512",
+    "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\polly.core\\8.5.1\\polly.core.8.5.1.nupkg.sha512",
+    "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

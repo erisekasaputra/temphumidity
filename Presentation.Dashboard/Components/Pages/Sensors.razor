@@ -1,0 +1,127 @@
+@page "/"
+@using System.Diagnostics
+@using Assets.Domain.Domain.Entities
+@using Assets.Domain.Services
+@using Presentation.Dashboard.Applications.Dtos
+@using Presentation.Dashboard.Applications.Interfaces
+@using Presentation.Dashboard.Applications.Services 
+@using MudBlazor
+@using Microsoft.EntityFrameworkCore
+@using Presentation.Dashboard.Infrastructures
+
+@inject IDbContextFactory<AppDbContext> DbContextFactory
+ 
+@rendermode InteractiveServer
+@inject IJSRuntime JSRuntime 
+@inject IRedisCacheService RedisCacheService
+@inject ShiftService ShiftService
+@inject NavigationManager NavManager
+
+<PageTitle>Dashboard | Sensors</PageTitle> 
+
+
+@if (_sensorDataList is not null)
+{     
+    @if (_sensorDataList.Any())
+    {
+        <button class="btn btn-warning btn-sm position-fixed top-0 end-0 m-3" @onclick="NavigateToMoitor" style="z-index: 1050;">
+            Monitoring @_selectedSensors.Count() selected sensors
+        </button>
+
+        <div class="row mt-4">
+            @foreach(var sensor in _sensorDataList)
+            {
+                <div class="col-lg-3">
+                    <div class="card shadow-sm"> 
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">@sensor.Name</h5> 
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="@sensor.Id"
+                                    id="sensor-@sensor.Id"
+                                    @onchange="e => ToggleSelection(sensor.Id, e)" />
+                                <label class="form-check-label" for="sensor-@sensor.Id">
+                                    ID: @sensor.Id
+                                </label>
+                                <br>
+                                <label class="form-check-label">
+                                    Location: @sensor.Location
+                                </label>
+                                <br>
+                                <label class="form-check-label">
+                                    Serial Number: @sensor.SerialNumber
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="custom-container">
+            <p>There is no sensor data</p>
+        </div>
+    }
+   
+}
+else
+{
+    <div class="custom-container">
+        <MudProgressCircular Indeterminate="true" />
+        <p>Loading sensors...</p>
+    </div>
+}
+
+ 
+
+
+@code {
+ 
+    private List<SensorConfig>? _sensorDataList = null; 
+ 
+    private List<Guid> _selectedSensors = [];
+ 
+    private void ToggleSelection(Guid sensorId, ChangeEventArgs e)
+    {
+        if (e is null || e.Value is null)
+        {
+            return;
+        }
+
+        if ((bool)e.Value)
+            _selectedSensors.Add(sensorId);
+        else
+            _selectedSensors.Remove(sensorId);
+    }
+
+    protected override void OnInitialized()
+    {
+        Task.Run(LoadData); 
+    } 
+
+    private async Task<List<SensorConfig>> LoadSensorsConfig()
+    { 
+        using var context = DbContextFactory.CreateDbContext(); // ✅ Context baru
+        var sensorDataService = new SensorDataService(context, ShiftService, RedisCacheService);
+        var result = await sensorDataService.GetAllAsync();
+        return result;
+    }
+
+    private void NavigateToMoitor()
+    {
+        NavManager.NavigateTo("/monitor?sensors=" + string.Join(",", _selectedSensors));
+    }    
+
+
+    private void LoadData()
+    { 
+        InvokeAsync(async () => {
+            _sensorDataList = null;
+            _sensorDataList = await LoadSensorsConfig(); 
+            StateHasChanged();
+        });
+    } 
+}

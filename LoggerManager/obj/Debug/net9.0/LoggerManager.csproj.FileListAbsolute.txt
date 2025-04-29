@@ -1,0 +1,66 @@
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\LoggerManager\bin\Debug\net9.0\LoggerManager.deps.json
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\LoggerManager\bin\Debug\net9.0\LoggerManager.dll
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\LoggerManager\bin\Debug\net9.0\LoggerManager.pdb
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\LoggerManager\obj\Debug\net9.0\LoggerManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfoInputs.cache
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfo.cs
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\LoggerManager\obj\Debug\net9.0\LoggerManager.csproj.CoreCompileInputs.cache
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\LoggerManager\obj\Debug\net9.0\LoggerManager.dll
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\LoggerManager\obj\Debug\net9.0\refint\LoggerManager.dll
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\LoggerManager\obj\Debug\net9.0\LoggerManager.pdb
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\LoggerManager\obj\Debug\net9.0\ref\LoggerManager.dll
+C:\Users\user\Documents\Projects\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.deps.json
+C:\Users\user\Documents\Projects\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.dll
+C:\Users\user\Documents\Projects\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.pdb
+C:\Users\user\Documents\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfoInputs.cache
+C:\Users\user\Documents\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfo.cs
+C:\Users\user\Documents\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.dll
+C:\Users\user\Documents\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\refint\LoggerManager.dll
+C:\Users\user\Documents\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.pdb
+C:\Users\user\Documents\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\ref\LoggerManager.dll
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.deps.json
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.dll
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.pdb
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfoInputs.cache
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfo.cs
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.csproj.CoreCompileInputs.cache
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.dll
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\refint\LoggerManager.dll
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.pdb
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\ref\LoggerManager.dll
+C:\Users\user\Downloads\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.deps.json
+C:\Users\user\Downloads\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.dll
+C:\Users\user\Downloads\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.pdb
+C:\Users\user\Downloads\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Downloads\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfoInputs.cache
+C:\Users\user\Downloads\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfo.cs
+C:\Users\user\Downloads\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.csproj.CoreCompileInputs.cache
+C:\Users\user\Downloads\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.dll
+C:\Users\user\Downloads\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\refint\LoggerManager.dll
+C:\Users\user\Downloads\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.pdb
+C:\Users\user\Downloads\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\ref\LoggerManager.dll
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.deps.json
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.dll
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.pdb
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfoInputs.cache
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfo.cs
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.csproj.CoreCompileInputs.cache
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.dll
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\refint\LoggerManager.dll
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.pdb
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\ref\LoggerManager.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.deps.json
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\bin\Debug\net9.0\LoggerManager.pdb
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfoInputs.cache
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfo.cs
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.csproj.CoreCompileInputs.cache
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\refint\LoggerManager.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.pdb
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\ref\LoggerManager.dll

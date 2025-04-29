@@ -1,0 +1,90 @@
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\obj\Debug\net9.0\MqttHub.csproj.AssemblyReference.cache
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\obj\Debug\net9.0\MqttHub.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\obj\Debug\net9.0\MqttHub.AssemblyInfoInputs.cache
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\obj\Debug\net9.0\MqttHub.AssemblyInfo.cs
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\obj\Debug\net9.0\MqttHub.csproj.CoreCompileInputs.cache
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\bin\Debug\net9.0\MqttHub.deps.json
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\bin\Debug\net9.0\MqttHub.dll
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\bin\Debug\net9.0\MqttHub.pdb
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\bin\Debug\net9.0\LoggerManager.dll
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\bin\Debug\net9.0\LoggerManager.pdb
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\obj\Debug\net9.0\MqttHub.csproj.Up2Date
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\obj\Debug\net9.0\MqttHub.dll
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\obj\Debug\net9.0\refint\MqttHub.dll
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\obj\Debug\net9.0\MqttHub.pdb
+C:\Users\erise\OneDrive\Documents\Projects\SIMS\Backend\MqttHub\obj\Debug\net9.0\ref\MqttHub.dll
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.deps.json
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.dll
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.pdb
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\LoggerManager.dll
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\LoggerManager.pdb
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.AssemblyReference.cache
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.AssemblyInfoInputs.cache
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.AssemblyInfo.cs
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.Up2Date
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.dll
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\refint\MqttHub.dll
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.pdb
+C:\Users\user\Documents\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\ref\MqttHub.dll
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.deps.json
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.dll
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.pdb
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\LoggerManager.dll
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\LoggerManager.pdb
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.AssemblyReference.cache
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.AssemblyInfoInputs.cache
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.AssemblyInfo.cs
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.CoreCompileInputs.cache
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.Up2Date
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.dll
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\refint\MqttHub.dll
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.pdb
+C:\Users\Iwan Gunawan\Downloads\TempHumiMonitoring\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\ref\MqttHub.dll
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.deps.json
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.dll
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.pdb
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\LoggerManager.dll
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\LoggerManager.pdb
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.AssemblyReference.cache
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.AssemblyInfoInputs.cache
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.AssemblyInfo.cs
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.CoreCompileInputs.cache
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.Up2Date
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.dll
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\refint\MqttHub.dll
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.pdb
+C:\Users\user\Downloads\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\ref\MqttHub.dll
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.deps.json
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.dll
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.pdb
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\LoggerManager.dll
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\LoggerManager.pdb
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.AssemblyReference.cache
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.AssemblyInfoInputs.cache
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.AssemblyInfo.cs
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.CoreCompileInputs.cache
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.Up2Date
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.dll
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\refint\MqttHub.dll
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.pdb
+C:\Users\user\Downloads\Projects\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\ref\MqttHub.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.deps.json
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\MqttHub.pdb
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\LoggerManager.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\bin\Debug\net9.0\LoggerManager.pdb
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.AssemblyReference.cache
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.AssemblyInfoInputs.cache
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.AssemblyInfo.cs
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.CoreCompileInputs.cache
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.csproj.Up2Date
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\refint\MqttHub.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.pdb
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\ref\MqttHub.dll
