@@ -64,3 +64,4 @@ C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\Lo
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\refint\LoggerManager.dll
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.pdb
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\ref\LoggerManager.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\LoggerManager\obj\Debug\net9.0\LoggerManager.sourcelink.json

@@ -1,3 +1,5 @@
+using Assets.Domain.Domain.Enums;
+
 namespace Assets.Domain.Domain.Entities;
 
 public class SensorShiftResult
@@ -10,6 +12,7 @@ public class SensorShiftResult
     public decimal AverageOrErrorValue { get; set; } // Nilai rata-rata atau error
     public string Unit { get; set; }
     public int ErrorStatus { get; set; }
+    public AlertType AlertType { get; set; }
     public SensorShiftResult()
     {
         Unit = string.Empty;
@@ -22,7 +25,8 @@ public class SensorShiftResult
         Guid sensorId,
         decimal averageOrErrorValue,
         string unit, 
-        int errorStatus)
+        int errorStatus,
+        AlertType alertType)
     {
         Id = Guid.NewGuid();
         ShiftName = shiftName;
@@ -32,12 +36,14 @@ public class SensorShiftResult
         AverageOrErrorValue = averageOrErrorValue;
         Unit = unit;
         ErrorStatus = errorStatus;
+        AlertType = alertType;
     }
 
-    public void UpdateValue(decimal averageOrErrorValue, string unit, int errorStatus)
+    public void UpdateValue(decimal averageOrErrorValue, string unit, int errorStatus, AlertType alertType)
     {
         AverageOrErrorValue = averageOrErrorValue;
         Unit = unit;
         ErrorStatus = errorStatus; 
+        AlertType = alertType;
     }
 }

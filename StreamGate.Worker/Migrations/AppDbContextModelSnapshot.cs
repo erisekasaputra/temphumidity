@@ -65,6 +65,9 @@ namespace StreamGate.Worker.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("AlertType")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("AverageOrErrorValue")
                         .HasColumnType("decimal(18,2)");
 

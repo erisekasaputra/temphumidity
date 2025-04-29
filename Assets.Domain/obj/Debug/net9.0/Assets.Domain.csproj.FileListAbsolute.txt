@@ -58,3 +58,4 @@ C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\Assets.Domain\obj\Debug\net9.0\As
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\Assets.Domain\obj\Debug\net9.0\refint\Assets.Domain.dll
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\Assets.Domain\obj\Debug\net9.0\Assets.Domain.pdb
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\Assets.Domain\obj\Debug\net9.0\ref\Assets.Domain.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\Assets.Domain\obj\Debug\net9.0\Assets.Domain.sourcelink.json

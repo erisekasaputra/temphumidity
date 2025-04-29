@@ -1,5 +1,6 @@
 using Assets.Domain.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Newtonsoft.Json;
 
 namespace StreamGate.Worker.Infrastructure;
@@ -11,6 +12,7 @@ public class AppDbContext : DbContext
     public DbSet<SensorShiftResult> SensorShiftResults { get; set; } 
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { } 
+     
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -120,3 +122,4 @@ public class AppDbContext : DbContext
         });
     }
 }
+ 

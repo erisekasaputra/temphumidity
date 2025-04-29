@@ -44,7 +44,8 @@ public class SensorDataService(
             foreach (var (dateStart, dateEnd) in ranges)
             {    
                 predicate = predicate.Or(u => u.SensorId == sensorId && u.DateStart == dateStart && u.DateEnd == dateEnd);  
-                aggregatedSensorShiftResult.AddSensorShiftResult(new SensorShiftResult(shiftName, dateStart, dateEnd, sensorId, 0, string.Empty, 0));
+                aggregatedSensorShiftResult.AddSensorShiftResult(new SensorShiftResult(
+                    shiftName, dateStart, dateEnd, sensorId, 0, string.Empty, 0, AlertType.Normal));
             } 
         } 
 
@@ -63,7 +64,7 @@ public class SensorDataService(
                     var sensorShiftResult = aggSensorShiftResult.SensorShiftResults.
                         FirstOrDefault(x => x.DateStart == result.DateStart && x.DateEnd == result.DateEnd);
                     
-                    sensorShiftResult?.UpdateValue(result.AverageOrErrorValue, result.Unit, result.ErrorStatus);
+                    sensorShiftResult?.UpdateValue(result.AverageOrErrorValue, result.Unit, result.ErrorStatus, result.AlertType);
                 }  
             }
         } 
@@ -205,7 +206,10 @@ public class SensorDataService(
         return await _context.SensorConfigs.ToListAsync();
     }
 
-    public async Task<List<SensorShiftResult>> GetReportByMonthAndSensorId(Guid tempId, Guid humiId, DateTime monthYearParam)
+    public async Task<List<SensorShiftResult>?> GetReportByMonthAndSensorId(
+        Guid tempId, 
+        Guid humiId, 
+        DateTime monthYearParam)
     {
         return await _context.SensorShiftResults
             .Where(x => (x.SensorId == tempId || x.SensorId == humiId) &&

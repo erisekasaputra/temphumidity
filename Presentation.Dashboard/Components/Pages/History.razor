@@ -8,11 +8,13 @@
 @using Microsoft.EntityFrameworkCore
 @using Presentation.Dashboard.Infrastructures
 @using System.Text.RegularExpressions
+@using System.Globalization
 
 @rendermode InteractiveServer
 @inject IDbContextFactory<AppDbContext> DbContextFactory 
 @inject IRedisCacheService RedisCacheService
 @inject ShiftService ShiftService
+@inject IJSRuntime JSRuntime 
 
 <PageTitle>History</PageTitle>
 
@@ -110,7 +112,7 @@ else
                         <option value="">-- Choose Temperature Sensor --</option>
                         @foreach(var item in _sensorDataList ?? [])
                         {
-                            @if(item.Name.ToLower().Includes("temp"))
+                            @if(item.Name.ToLower().Contains("temp"))
                             {
                                 <option value="@item.Id">@item.Name [S/N: @item.SerialNumber] [Location: @item.Location]</option>
                             }
@@ -121,9 +123,12 @@ else
                     <label>Humidity Sensor:</label>
                     <select @bind="reportOption2" class="form-control">
                         <option value="">-- Choose Humidity Sensor --</option>
-                        @if(item.Name.ToLower().Includes("humi"))
+                        @foreach(var item in _sensorDataList ?? [])
                         {
-                            <option value="@item.Id">@item.Name [S/N: @item.SerialNumber] [Location: @item.Location]</option>
+                            @if(item.Name.ToLower().Contains("humi"))
+                            {
+                                <option value="@item.Id">@item.Name [S/N: @item.SerialNumber] [Location: @item.Location]</option>
+                            }
                         }
                     </select>
                 </div>
@@ -141,6 +146,15 @@ else
 </div>
 
 <script>
+    window.downloadFile = (filename, base64) => {
+        const link = document.createElement('a');
+        link.download = filename;
+        link.href = "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64," + base64;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
     window.getSelectedValues = function (sel) {
         var results = [];
         var i;
@@ -266,9 +280,42 @@ else
     private bool isModalVisible = false;
     private string reportOption1 = string.Empty;
     private string reportOption2 = string.Empty;
-    private string reportMonthYear = string.Empty;
+    private DateTime? reportMonthYear = null;
+    private Guid? selectedTemperatureExportGuid 
+    {
+        get 
+        {
+            if (string.IsNullOrEmpty(reportOption1))
+            {
+                return null;
+            }
 
-    
+            if (Guid.TryParse(reportOption1, out var id))
+            { 
+                return id;
+            }
+            
+            return null;
+        } 
+    }
+
+    private Guid? selectedHumidityExportGuid 
+    {
+        get 
+        {
+            if (string.IsNullOrEmpty(reportOption2))
+            {
+                return null;
+            }
+
+            if (Guid.TryParse(reportOption2, out var id))
+            { 
+                return id;
+            }
+            
+            return null;
+        } 
+    } 
     private void ShowModal()
     {
         isModalVisible = true;
@@ -288,7 +335,29 @@ else
 
     private async Task Export()
     {
-        await Task.Delay(100);
+        using var context = DbContextFactory.CreateDbContext();
+        var sensorDataService = new SensorDataService(context, ShiftService, RedisCacheService); 
+
+        if (reportMonthYear is null)
+        {
+            return;
+        }
+
+        var shiftResults = await sensorDataService.GetReportByMonthAndSensorId(
+            selectedTemperatureExportGuid.HasValue ? selectedTemperatureExportGuid.Value : Guid.Empty,
+            selectedHumidityExportGuid.HasValue ? selectedHumidityExportGuid.Value : Guid.Empty,
+            reportMonthYear.Value);
+
+        var bytes = await ExcelReportGeneratorService.Generate(
+            reportMonthYear.Value, 
+            shiftResults, 
+            context, 
+            RedisCacheService);
+
+        var base64 = Convert.ToBase64String(bytes);
+
+        var fileName = "TemperaturHumidityControl.xlsx";
+        await JSRuntime.InvokeVoidAsync("downloadFile", fileName, base64);
     }
 
     private async Task ApplyFilter()

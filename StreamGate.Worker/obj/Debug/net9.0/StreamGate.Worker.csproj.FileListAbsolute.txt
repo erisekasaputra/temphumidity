@@ -525,3 +525,4 @@ C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\StreamGate.Worker\obj\Debug\net9.
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\StreamGate.Worker\obj\Debug\net9.0\StreamGate.Worker.pdb
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\StreamGate.Worker\obj\Debug\net9.0\StreamGate.Worker.genruntimeconfig.cache
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\StreamGate.Worker\obj\Debug\net9.0\ref\StreamGate.Worker.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\StreamGate.Worker\obj\Debug\net9.0\StreamGate.Worker.sourcelink.json

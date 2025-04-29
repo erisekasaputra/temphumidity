@@ -113,8 +113,7 @@ public class SensorEventListener : BackgroundService
            
 
             if (!topic.Contains(request.SensorId.ToString()))
-            {
-                Console.WriteLine("TOPIC NOT MATCH");
+            { 
                 return;
             } 
 
@@ -133,11 +132,7 @@ public class SensorEventListener : BackgroundService
             sensor ??= new Sensor(sensorConfig.Id, sensorConfig.Name, sensorConfig.Location, sensorConfig.SerialNumber, 100);
 
 
-            var (shiftName, start, end, shiftDate) = _shiftService.GetCurrentShiftDateStartEnd(); 
-            // if (start is null || end is null || shiftDate is null)
-            // { 
-            //     return;
-            // }
+            var (shiftName, start, end, shiftDate) = _shiftService.GetCurrentShiftDateStartEnd();  
 
             start ??= DateTime.UtcNow;
             end ??= DateTime.UtcNow;
@@ -215,7 +210,7 @@ public class SensorEventListener : BackgroundService
                             return;
                         }
 
-                        trackedSensorShiftResult.UpdateValue(sensorValue.Value, sensorConfig.Unit, 1);
+                        trackedSensorShiftResult.UpdateValue(sensorValue.Value, sensorConfig.Unit, 1, sensorValue.Alert.Type);
                         _dbContext.SensorShiftResults.Update(trackedSensorShiftResult);
                         await _dbContext.SaveChangesAsync(); 
                         
@@ -230,7 +225,8 @@ public class SensorEventListener : BackgroundService
                                                                      sensorConfig.Id,
                                                                      sensorValue.Value,
                                                                      sensorConfig.Unit,
-                                                                     sensorValue.Alert.Type is AlertType.UCLExceeded or AlertType.LCLExceeded ? 1 : 0);
+                                                                     sensorValue.Alert.Type is AlertType.UCLExceeded or AlertType.LCLExceeded ? 1 : 0,
+                                                                     sensorValue.Alert.Type);
                     
                     await _dbContext.SensorShiftResults.AddAsync(newSensorShiftResult);
                     await _dbContext.SaveChangesAsync();

@@ -88,3 +88,4 @@ C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\refint\MqttHub.dll
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.pdb
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\ref\MqttHub.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\MqttHub\obj\Debug\net9.0\MqttHub.sourcelink.json
