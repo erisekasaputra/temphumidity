@@ -31,3 +31,37 @@ C:\Users\user\Downloads\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\refint\T
 C:\Users\user\Downloads\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZoneApi.pdb
 C:\Users\user\Downloads\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZoneApi.genruntimeconfig.cache
 C:\Users\user\Downloads\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\ref\TimeZoneApi.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\bin\Debug\net9.0\appsettings.json
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\bin\Debug\net9.0\TimeZoneApi.staticwebassets.endpoints.json
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\bin\Debug\net9.0\TimeZoneApi.exe
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\bin\Debug\net9.0\TimeZoneApi.deps.json
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\bin\Debug\net9.0\TimeZoneApi.runtimeconfig.json
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\bin\Debug\net9.0\TimeZoneApi.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\bin\Debug\net9.0\TimeZoneApi.pdb
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZoneApi.csproj.AssemblyReference.cache
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZoneApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZoneApi.AssemblyInfoInputs.cache
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZoneApi.AssemblyInfo.cs
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZoneApi.csproj.CoreCompileInputs.cache
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZoneApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZoneApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZoneApi.sourcelink.json
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\scopedcss\bundle\TimeZoneApi.styles.css
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\staticwebassets\msbuild.TimeZoneApi.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\staticwebassets\msbuild.TimeZoneApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\staticwebassets\msbuild.build.TimeZoneApi.props
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.TimeZoneApi.props
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.TimeZoneApi.props
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\staticwebassets.pack.json
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZone.43D5425D.Up2Date
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZoneApi.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\refint\TimeZoneApi.dll
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZoneApi.pdb
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\TimeZoneApi.genruntimeconfig.cache
+C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\TimeZoneApi\obj\Debug\net9.0\ref\TimeZoneApi.dll

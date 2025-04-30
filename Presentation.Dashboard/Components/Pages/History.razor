@@ -344,9 +344,9 @@ else
         }
 
         var shiftResults = await sensorDataService.GetReportByMonthAndSensorId(
+            reportMonthYear.Value,
             selectedTemperatureExportGuid.HasValue ? selectedTemperatureExportGuid.Value : Guid.Empty,
-            selectedHumidityExportGuid.HasValue ? selectedHumidityExportGuid.Value : Guid.Empty,
-            reportMonthYear.Value);
+            selectedHumidityExportGuid.HasValue ? selectedHumidityExportGuid.Value : Guid.Empty);
 
         var bytes = await ExcelReportGeneratorService.Generate(
             reportMonthYear.Value, 

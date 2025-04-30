@@ -18,8 +18,8 @@ public class SensorEventPublisher(ILogger<SensorEventPublisher> logger, IMqttHub
             {
                 var utcNow = DateTime.UtcNow; 
 
-                Guid sensorId1 = Guid.Parse("87c6b511-ab03-42c9-9229-889fd45af9dc");
-                Guid sensorId2 = Guid.Parse("203025c6-54dd-420c-8a55-ca06a3a7daaf"); 
+                Guid sensorId1 = Guid.Parse("7ea027ad-cc11-48f2-8338-3dea9d96c04e");
+                Guid sensorId2 = Guid.Parse("7ceac3b1-c7d6-4653-9cc9-dd57e7611f9a"); 
                 
                 Random rand = new();
 

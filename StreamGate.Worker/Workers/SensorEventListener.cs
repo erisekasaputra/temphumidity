@@ -1,6 +1,7 @@
 using System.Text.Json;
 using Assets.Domain.Domain.Entities;
 using Assets.Domain.Domain.Enums;
+using Assets.Domain.Extensions;
 using Assets.Domain.Services;
 using Microsoft.EntityFrameworkCore;
 using MqttHub.Applications.Interfaces;
@@ -122,7 +123,8 @@ public class SensorEventListener : BackgroundService
             if (sensorConfig is null)
             {
                 sensorConfig = await _dbContext.SensorConfigs
-                    .FirstOrDefaultAsync(x => x.Id == request.SensorId) ?? throw new Exception($"Sensor {request.SensorId} has no master configuration.");
+                    .FirstOrDefaultAsync(x => x.Id == request.SensorId) 
+                    ?? throw new Exception($"Sensor {request.SensorId} has no master configuration.");
 
                 await _redisCache.SetObject($"sensor/config/{request.SensorId}", sensorConfig);
             }
@@ -134,10 +136,7 @@ public class SensorEventListener : BackgroundService
 
             var (shiftName, start, end, shiftDate) = _shiftService.GetCurrentShiftDateStartEnd();  
 
-            start ??= DateTime.UtcNow;
-            end ??= DateTime.UtcNow;
-            shiftDate ??= DateTime.UtcNow;  
-
+            shiftDate ??= DateTime.UtcNow.FromUtcToJakarta();
 
             if (sensor is not null)
             {
@@ -177,16 +176,20 @@ public class SensorEventListener : BackgroundService
                 }    
 
 
-            
-
-
-
+                if (shiftName <= 0 || start is null || end is null)
+                {
+                    Console.WriteLine("No shift was found");
+                    return;
+                }
+ 
  
                 var sensorShiftResult = await _redisCache
                     .GetObject<SensorShiftResult>($"sensor/each/shif/{sensorConfig.Id}/{start.Value:yyyyMMddHHmmss}/{end.Value:yyyyMMddHHmmss}"); 
 
                 sensorShiftResult ??= await _dbContext.SensorShiftResults
-                            .Where(x => x.DateStart == start && x.DateEnd == end && x.SensorId == sensorConfig.Id).AsNoTracking().FirstOrDefaultAsync();  
+                            .Where(x => x.DateStart == start && x.DateEnd == end && x.SensorId == sensorConfig.Id)
+                            .AsNoTracking()
+                            .FirstOrDefaultAsync();  
 
                 bool isValueError = sensorValue.Alert.Type == AlertType.UCLExceeded || sensorValue.Alert.Type == AlertType.LCLExceeded;    
             

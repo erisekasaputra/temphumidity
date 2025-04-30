@@ -207,12 +207,11 @@ public class SensorDataService(
     }
 
     public async Task<List<SensorShiftResult>?> GetReportByMonthAndSensorId(
-        Guid tempId, 
-        Guid humiId, 
-        DateTime monthYearParam)
+        DateTime monthYearParam,
+        params Guid[] sensorIds)
     {
         return await _context.SensorShiftResults
-            .Where(x => (x.SensorId == tempId || x.SensorId == humiId) &&
+            .Where(x => sensorIds.Contains(x.SensorId) &&
                         x.DateStart.Year == monthYearParam.Year &&
                         x.DateStart.Month == monthYearParam.Month)
             .ToListAsync();

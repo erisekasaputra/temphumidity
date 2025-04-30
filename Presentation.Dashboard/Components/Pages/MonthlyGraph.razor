@@ -1,0 +1,200 @@
+@page "/Monitor/Monthly" 
+
+@using Assets.Domain.Domain.Entities
+@using Assets.Domain.Domain.Enums
+@using Assets.Domain.Services
+@using Presentation.Dashboard.Applications.Interfaces
+@using Presentation.Dashboard.Applications.Services
+@using System.Text.Json
+@using Presentation.Dashboard.SeedWorks
+@using Microsoft.EntityFrameworkCore
+@using Presentation.Dashboard.Infrastructures
+@using MudBlazor
+@using Microsoft.AspNetCore.WebUtilities
+
+@rendermode InteractiveServer
+
+@inject IDbContextFactory<AppDbContext> DbContextFactory
+@inject MqttService MqttService
+@inject IJSRuntime JSRuntime 
+@inject IRedisCacheService RedisCacheService
+@inject ShiftService ShiftService
+@inject NavigationManager NavManager
+
+<PageTitle>Dashboard | Monthly Monitor</PageTitle> 
+
+
+
+<h3>Filter</h3>
+<div class="d-flex align-items-center gap-2">
+    <label class="me-2">Sensor:</label> 
+    <select @bind="selectedSensorId" class="form-control w-auto" >
+        <option value="">-- Select Sensor --</option>
+        @foreach(var item in _sensorDataList ?? [])
+        {
+            <option value="@item.Id">@item.Name [S/N: @item.SerialNumber] [Location: @item.Location]</option>
+        }   
+    </select>  
+
+    <label class="me-2">Date:</label>
+    <input type="month" @bind="filterDate" class="form-control w-auto" /> 
+    
+    <button class="btn btn-success ms-3" @onclick="ApplyFilter">Apply</button> 
+</div>
+
+<canvas id="sensorChart" width="800" height="400"></canvas>
+
+<script>
+    window.renderSensorChart = (dataPoints) => { 
+
+        const canvas = document.getElementById('sensorChart');
+        if (!canvas) {
+            console.warn('Canvas element not found: sensorChart');
+            return;
+        }
+
+        const ctx = canvas.getContext('2d');
+
+        // Cek apakah sensorChart adalah instance Chart.js dan bisa di-destroy
+        if (window.sensorChart instanceof Chart && typeof window.sensorChart.destroy === 'function') {
+            window.sensorChart.destroy();
+        }
+
+         // Jika dataPoints kosong atau null, tidak perlu render chart baru
+        if (!Array.isArray(dataPoints) || dataPoints.length === 0) return;
+
+        const labels = dataPoints.map(d => d.label);
+        const values = dataPoints.map(d => d.value);
+
+        // Inisialisasi chart baru
+        window.sensorChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Rata-rata',
+                    data: values,
+                    borderColor: 'blue',
+                    backgroundColor: 'rgba(0, 0, 255, 0.1)', 
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    };
+
+</script>
+
+
+@code { 
+
+    private List<SensorConfig>? _sensorDataList = null; 
+    private string selectedSensorId = string.Empty; 
+    private Guid? selectedSensorIdGuid 
+    {
+        get 
+        {
+            if (string.IsNullOrEmpty(selectedSensorId))
+            {
+                return null;
+            }
+
+            if (Guid.TryParse(selectedSensorId, out var id))
+            { 
+                return id;
+            }
+            
+            return null;
+        } 
+        set
+        {
+            if (value is null || value == Guid.Empty)
+            {
+                selectedSensorId = string.Empty;    
+                return;
+            }
+
+            selectedSensorId = value.Value.ToString();
+        }
+    } 
+ 
+    private DateTime? filterDate; 
+    
+    protected override void OnInitialized()
+    {
+        InvokeAsync(async () => { 
+
+            var uri = NavManager.ToAbsoluteUri(NavManager.Uri); 
+            if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("sensorId", out var idValue))
+            { 
+                if(Guid.TryParse(idValue, out var idValueGuid))
+                {
+                    selectedSensorIdGuid = idValueGuid;
+                }
+                else
+                {
+                    selectedSensorIdGuid = null;
+                } 
+            }
+            else
+            {
+                selectedSensorIdGuid = null; 
+            }
+
+            _sensorDataList = null;
+            _sensorDataList = await LoadSensorsConfig(); 
+            StateHasChanged();
+
+            await LoadData();
+        });  
+    }
+
+    private async Task<List<SensorConfig>> LoadSensorsConfig()
+    { 
+        using var context = DbContextFactory.CreateDbContext(); // ✅ Context baru
+        var sensorDataService = new SensorDataService(context, ShiftService, RedisCacheService);
+        var result = await sensorDataService.GetAllAsync();
+        return result;
+    }
+
+    private async Task LoadData()
+    {
+        await InvokeAsync( async () => {
+            using var context = DbContextFactory.CreateDbContext();
+            var sensorDataService = new SensorDataService(context, ShiftService, RedisCacheService);
+
+            if (!filterDate.HasValue || !selectedSensorIdGuid.HasValue)
+            {
+                return;
+            }
+
+            var results = await sensorDataService.GetReportByMonthAndSensorId(
+                filterDate.Value, 
+                selectedSensorIdGuid.Value); 
+            
+            var chartInput = results?
+                .OrderBy(x => x.DateStart)
+                .Select(x => new {
+                    label = x.DateStart.CeilSeconds().ToString(),
+                    value = x.AverageOrErrorValue
+                }); 
+
+            await JSRuntime.InvokeVoidAsync("renderSensorChart", chartInput);
+
+            StateHasChanged();
+        });
+    }
+    
+    private async Task ApplyFilter()
+    { 
+        await LoadData();
+    }
+}
+

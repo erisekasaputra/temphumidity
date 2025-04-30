@@ -4,6 +4,13 @@ namespace Assets.Domain.Services;
 
     public class ShiftService
     {
+
+        static DateTime TruncateToSeconds(DateTime dt)
+        {
+            return new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Kind);
+        }
+
+
         public readonly List<Shift> Shifts =
         [ 
             new Shift(1, "07:00:00", "15:59:59"),
@@ -14,17 +21,21 @@ namespace Assets.Domain.Services;
         public (int shiftName, DateTime? start, DateTime? end, DateTime? shiftDate) GetCurrentShiftDateStartEnd()
         {
             DateTime utcNow = DateTime.UtcNow;
-            DateTime now = utcNow.AddHours(7); // Local time (WIB)
+            DateTime now = TruncateToSeconds(utcNow.AddHours(7)); // Local time (WIB)
 
-            List<(DateTime workingDate, int shiftName, List<(DateTime dateStart, DateTime dateEnd)> values)> shifts = GetShiftsByShiftOrderForDate();
+            List<(DateTime workingDate, int shiftName, List<(DateTime dateStart, DateTime dateEnd)> values)> shifts = 
+                GetShiftsByShiftOrderForDate();
 
             foreach (var (workingDate, shiftName, values) in shifts)
             {
                 foreach ((var dateStart, var dateEnd) in values)
                 {
-                    if (now >= dateStart && now < dateEnd)
-                    {
-                        return (shiftName, dateStart, dateEnd, workingDate);
+                    DateTime start = TruncateToSeconds(dateStart);
+                    DateTime end = TruncateToSeconds(dateEnd);
+
+                    if (now >= start && now < end)
+                    { 
+                        return (shiftName, start, end, workingDate);
                     }
                 }
             }
@@ -32,10 +43,11 @@ namespace Assets.Domain.Services;
             return (-1, null, null, null);
         }
 
-        public List<(DateTime workingDate, int shiftName, List<(DateTime start, DateTime end)> hourlyRanges)> GetShiftsByShiftOrderForDate()
+        public List<(DateTime workingDate, int shiftName, List<(DateTime start, DateTime end)> hourlyRanges)> 
+            GetShiftsByShiftOrderForDate()
         {
             DateTime utcNow = DateTime.UtcNow;
-            DateTime now = utcNow.AddHours(7); // Local time 
+            DateTime now = TruncateToSeconds(utcNow.AddHours(7)); // Local time 
              
             var currentShift = GetCurrentShift(now, out DateTime referenceDate);
   
@@ -60,6 +72,7 @@ namespace Assets.Domain.Services;
                     shift.Name,
                     GetHourlyRanges(start, end)
                 ));  
+                
                 currentStart = end.AddSeconds(1); // atau ganti dengan end[i + 1] jika i + 1 exists
             } 
 
