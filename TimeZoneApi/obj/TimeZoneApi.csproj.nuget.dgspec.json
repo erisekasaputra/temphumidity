@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\TimeZoneApi\\TimeZoneApi.csproj": {}
+    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\TimeZoneApi\\TimeZoneApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\TimeZoneApi\\TimeZoneApi.csproj": {
+    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\TimeZoneApi\\TimeZoneApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\TimeZoneApi\\TimeZoneApi.csproj",
+        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\TimeZoneApi\\TimeZoneApi.csproj",
         "projectName": "TimeZoneApi",
-        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\TimeZoneApi\\TimeZoneApi.csproj",
+        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\TimeZoneApi\\TimeZoneApi.csproj",
         "packagesPath": "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\TimeZoneApi\\obj\\",
+        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\TimeZoneApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Riyadi Jamin\\AppData\\Roaming\\NuGet\\NuGet.Config"

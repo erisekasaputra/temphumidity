@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "riTCaXbCfNo=",
+  "dgSpecHash": "RPJ4QV8VcX8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\HardwareInfo\\HardwareInfo.csproj",
+  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\HardwareInfo\\HardwareInfo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\system.codedom\\9.0.3\\system.codedom.9.0.3.nupkg.sha512",
     "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\system.management\\9.0.3\\system.management.9.0.3.nupkg.sha512"

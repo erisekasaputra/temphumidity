@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w8fIvi6Gh6Q=",
+  "dgSpecHash": "zb8762LDIbA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\MqttHub\\MqttHub.csproj",
+  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\MqttHub\\MqttHub.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.1\\microsoft.extensions.configuration.abstractions.9.0.1.nupkg.sha512",
     "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.1\\microsoft.extensions.dependencyinjection.abstractions.9.0.1.nupkg.sha512",

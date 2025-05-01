@@ -10,6 +10,7 @@
 @using Microsoft.EntityFrameworkCore
 @using Presentation.Dashboard.Infrastructures
 @using MudBlazor
+@using Assets.Domain.Extensions;
 
 @rendermode InteractiveServer
 
@@ -254,7 +255,8 @@ else
 
     private void NavigateToDetail(Guid sensorId)
     {
-        NavManager.NavigateTo($"/Monitor/Monthly?sensorId={sensorId}");
+        var dateNow = DateTime.UtcNow.FromUtcToJakarta();
+        NavManager.NavigateTo($"/Monitor/Monthly?sensorId={sensorId}&date={dateNow:yyyy-MM-dd}"); 
     }
 
     protected override void OnInitialized()

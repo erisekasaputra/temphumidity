@@ -130,22 +130,28 @@
     protected override void OnInitialized()
     {
         InvokeAsync(async () => { 
+            var uri = NavManager.ToAbsoluteUri(NavManager.Uri);  
+            var queryParams = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
 
-            var uri = NavManager.ToAbsoluteUri(NavManager.Uri); 
-            if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("sensorId", out var idValue))
+
+            if (queryParams.TryGetValue("sensorId", out var idValue) &&
+                Guid.TryParse(idValue, out var idValueGuid))
             { 
-                if(Guid.TryParse(idValue, out var idValueGuid))
-                {
-                    selectedSensorIdGuid = idValueGuid;
-                }
-                else
-                {
-                    selectedSensorIdGuid = null;
-                } 
+                selectedSensorIdGuid = idValueGuid; 
             }
             else
             {
                 selectedSensorIdGuid = null; 
+            }
+
+            if (queryParams.TryGetValue("date", out var dateValue) &&
+                DateTime.TryParse(dateValue, out var parsedDate))
+            {
+                filterDate = parsedDate;
+            }
+            else
+            {
+                filterDate = null;
             }
 
             _sensorDataList = null;

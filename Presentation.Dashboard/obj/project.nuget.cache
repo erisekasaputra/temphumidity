@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XenX4g22XLg=",
+  "dgSpecHash": "7702LY5tH9Y=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\Presentation.Dashboard\\Presentation.Dashboard.csproj",
+  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\Presentation.Dashboard\\Presentation.Dashboard.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

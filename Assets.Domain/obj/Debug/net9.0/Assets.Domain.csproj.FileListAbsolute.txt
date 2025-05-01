@@ -59,3 +59,16 @@ C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\Assets.Domain\obj\Debug\net9.0\re
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\Assets.Domain\obj\Debug\net9.0\Assets.Domain.pdb
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\Assets.Domain\obj\Debug\net9.0\ref\Assets.Domain.dll
 C:\Users\Riyadi Jamin\Music\TempHumiMonitoring\Assets.Domain\obj\Debug\net9.0\Assets.Domain.sourcelink.json
+C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\Assets.Domain\bin\Debug\net9.0\Assets.Domain.deps.json
+C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\Assets.Domain\bin\Debug\net9.0\Assets.Domain.dll
+C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\Assets.Domain\bin\Debug\net9.0\Assets.Domain.pdb
+C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\Assets.Domain\obj\Debug\net9.0\Assets.Domain.csproj.AssemblyReference.cache
+C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\Assets.Domain\obj\Debug\net9.0\Assets.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\Assets.Domain\obj\Debug\net9.0\Assets.Domain.AssemblyInfoInputs.cache
+C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\Assets.Domain\obj\Debug\net9.0\Assets.Domain.AssemblyInfo.cs
+C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\Assets.Domain\obj\Debug\net9.0\Assets.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\Assets.Domain\obj\Debug\net9.0\Assets.Domain.sourcelink.json
+C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\Assets.Domain\obj\Debug\net9.0\Assets.Domain.dll
+C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\Assets.Domain\obj\Debug\net9.0\refint\Assets.Domain.dll
+C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\Assets.Domain\obj\Debug\net9.0\Assets.Domain.pdb
+C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\Assets.Domain\obj\Debug\net9.0\ref\Assets.Domain.dll

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\HardwareInfo\\HardwareInfo.csproj": {}
+    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\HardwareInfo\\HardwareInfo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\HardwareInfo\\HardwareInfo.csproj": {
+    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\HardwareInfo\\HardwareInfo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\HardwareInfo\\HardwareInfo.csproj",
+        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\HardwareInfo\\HardwareInfo.csproj",
         "projectName": "HardwareInfo",
-        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\HardwareInfo\\HardwareInfo.csproj",
+        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\HardwareInfo\\HardwareInfo.csproj",
         "packagesPath": "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\HardwareInfo\\obj\\",
+        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\HardwareInfo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Riyadi Jamin\\AppData\\Roaming\\NuGet\\NuGet.Config"

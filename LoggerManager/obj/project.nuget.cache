@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zEUAxSx+mxg=",
+  "dgSpecHash": "MgYod2Hx5FQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumiMonitoring\\LoggerManager\\LoggerManager.csproj",
+  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\LoggerManager\\LoggerManager.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
