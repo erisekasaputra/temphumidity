@@ -5,10 +5,10 @@ services:
     ports: 
       - "6379:6379"
     restart: always
-    networks:
-      - app-network
     volumes:
       - redis_data:/data
+    networks:
+      - app-network
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
@@ -28,17 +28,16 @@ services:
       - EMQX_HOST=0.0.0.0
       - EMQX_LISTENERS__MQTT__DEFAULT__BIND=0.0.0.0:1883
     restart: always
-    networks:
-      - app-network
     volumes:
       - emqx_data:/opt/emqx/data
+    networks:
+      - app-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:18083/status"]
       interval: 5s
       retries: 5
       start_period: 10s
       timeout: 5s
-
   streamgate-worker:
     build:
       context: .
@@ -89,7 +88,7 @@ services:
     container_name: mssql-service
     restart: always
     environment:
-      SA_PASSWORD: "Katolec@2025_"  
+      SA_PASSWORD: "000328Eris@"  # Ganti dengan password yang kuat
       ACCEPT_EULA: "Y"
       MSSQL_PID: "Express"
     ports:

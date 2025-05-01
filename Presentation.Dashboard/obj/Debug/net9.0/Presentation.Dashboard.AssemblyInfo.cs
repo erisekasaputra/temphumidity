@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Presentation.Dashboard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d60ff4e7bdc90cc5f8365162b6b15c1390ba9bba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a594d996b45bfa58391b5403098d3177a7322f64")]
 [assembly: System.Reflection.AssemblyProductAttribute("Presentation.Dashboard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Presentation.Dashboard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
