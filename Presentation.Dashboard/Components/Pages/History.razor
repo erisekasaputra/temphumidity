@@ -132,9 +132,27 @@ else
                         }
                     </select>
                 </div>
-                <div class="form-group mb-3">
-                    <label>Month & Year:</label>
-                    <input type="month" class="form-control" @bind="reportMonthYear" />
+                <div class="form-group mb-3"> 
+                    <label class="me-2">Month</label>
+                    <select class="form-select w-auto d-inline-block me-2"
+                            @bind="selectedMonth"
+                            @bind:after="SyncFilterDateFromDropdowns">
+                        <option value="">--</option>
+                        @for (int m = 1; m <= 12; m++)
+                        {
+                            <option value="@m">@CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(m)</option>
+                        }
+                    </select> 
+                    <label class="me-2">Year</label>
+                    <select class="form-select w-auto d-inline-block"
+                            @bind="selectedYear"
+                            @bind:after="SyncFilterDateFromDropdowns">
+                        <option value="">--</option>
+                        @for (int y = DateTime.Now.Year; y >= DateTime.Now.Year - 20; y--)
+                        {
+                            <option value="@y">@y</option>
+                        }
+                    </select> 
                 </div>
             </div>
             <div class="modal-footer">
@@ -281,6 +299,8 @@ else
     private string reportOption1 = string.Empty;
     private string reportOption2 = string.Empty;
     private DateTime? reportMonthYear = null;
+    private int? selectedMonth;
+    private int? selectedYear;
     private Guid? selectedTemperatureExportGuid 
     {
         get 
@@ -330,6 +350,32 @@ else
     {
         isModalVisible = false;  
         await Export(); 
+    }
+
+    private void SyncDropdownsFromFilterDate()
+    {
+        if (reportMonthYear.HasValue)
+        {
+            selectedMonth = reportMonthYear.Value.Month;
+            selectedYear = reportMonthYear.Value.Year;
+        }
+        else
+        {
+            selectedMonth = null;
+            selectedYear = null;
+        }
+    }
+
+    private void SyncFilterDateFromDropdowns()
+    {
+        if (selectedMonth.HasValue && selectedYear.HasValue)
+        {
+            reportMonthYear = new DateTime(selectedYear.Value, selectedMonth.Value, 1); 
+        }
+        else
+        { 
+            reportMonthYear = null;
+        }
     }
 
 

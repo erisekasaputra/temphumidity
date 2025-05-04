@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\Testing\\Testing.csproj": {}
+    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Testing\\Testing.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\Assets.Domain\\Assets.Domain.csproj": {
+    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Assets.Domain\\Assets.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\Assets.Domain\\Assets.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Assets.Domain\\Assets.Domain.csproj",
         "projectName": "Assets.Domain",
-        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\Assets.Domain\\Assets.Domain.csproj",
+        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Assets.Domain\\Assets.Domain.csproj",
         "packagesPath": "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\Assets.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Assets.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Riyadi Jamin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\Testing\\Testing.csproj": {
+    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Testing\\Testing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\Testing\\Testing.csproj",
+        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Testing\\Testing.csproj",
         "projectName": "Testing",
-        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\Testing\\Testing.csproj",
+        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Testing\\Testing.csproj",
         "packagesPath": "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\Testing\\obj\\",
+        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Testing\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Riyadi Jamin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -91,8 +91,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\Assets.Domain\\Assets.Domain.csproj": {
-                "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\Assets.Domain\\Assets.Domain.csproj"
+              "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Assets.Domain\\Assets.Domain.csproj": {
+                "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Assets.Domain\\Assets.Domain.csproj"
               }
             }
           }

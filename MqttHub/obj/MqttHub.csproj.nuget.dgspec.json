@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\MqttHub\\MqttHub.csproj": {}
+    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\MqttHub\\MqttHub.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\LoggerManager\\LoggerManager.csproj": {
+    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\LoggerManager\\LoggerManager.csproj",
+        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj",
         "projectName": "LoggerManager",
-        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\LoggerManager\\LoggerManager.csproj",
+        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj",
         "packagesPath": "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\LoggerManager\\obj\\",
+        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Riyadi Jamin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -63,14 +63,14 @@
         }
       }
     },
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\MqttHub\\MqttHub.csproj": {
+    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\MqttHub\\MqttHub.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\MqttHub\\MqttHub.csproj",
+        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\MqttHub\\MqttHub.csproj",
         "projectName": "MqttHub",
-        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\MqttHub\\MqttHub.csproj",
+        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\MqttHub\\MqttHub.csproj",
         "packagesPath": "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\MqttHub\\obj\\",
+        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\MqttHub\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Riyadi Jamin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -85,8 +85,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\LoggerManager\\LoggerManager.csproj": {
-                "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temperature_humidity_control\\LoggerManager\\LoggerManager.csproj"
+              "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj": {
+                "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj"
               }
             }
           }

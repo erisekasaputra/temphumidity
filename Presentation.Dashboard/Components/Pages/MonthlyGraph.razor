@@ -11,6 +11,7 @@
 @using Presentation.Dashboard.Infrastructures
 @using MudBlazor
 @using Microsoft.AspNetCore.WebUtilities
+@using System.Globalization
 
 @rendermode InteractiveServer
 
@@ -36,8 +37,27 @@
         }   
     </select>  
 
-    <label class="me-2">Date:</label>
-    <input type="month" @bind="filterDate" class="form-control w-auto" /> 
+    <label class="me-2">Month</label>
+    <select class="form-select w-auto d-inline-block me-2"
+            @bind="selectedMonth"
+            @bind:after="SyncFilterDateFromDropdowns">
+        <option value="">--</option>
+        @for (int m = 1; m <= 12; m++)
+        {
+            <option value="@m">@CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(m)</option>
+        }
+    </select>
+
+    <label class="me-2">Year</label>
+    <select class="form-select w-auto d-inline-block"
+            @bind="selectedYear"
+            @bind:after="SyncFilterDateFromDropdowns">
+        <option value="">--</option>
+        @for (int y = DateTime.Now.Year; y >= DateTime.Now.Year - 20; y--)
+        {
+            <option value="@y">@y</option>
+        }
+    </select>
     
     <button class="btn btn-success ms-3" @onclick="ApplyFilter">Apply</button> 
 </div>
@@ -125,7 +145,10 @@
         }
     } 
  
-    private DateTime? filterDate; 
+ 
+    private DateTime? filterDate;
+    private int? selectedMonth;
+    private int? selectedYear;
     
     protected override void OnInitialized()
     {
@@ -154,6 +177,8 @@
                 filterDate = null;
             }
 
+            SyncDropdownsFromFilterDate();
+
             _sensorDataList = null;
             _sensorDataList = await LoadSensorsConfig(); 
             StateHasChanged();
@@ -161,6 +186,33 @@
             await LoadData();
         });  
     }
+
+    private void SyncDropdownsFromFilterDate()
+    {
+        if (filterDate.HasValue)
+        {
+            selectedMonth = filterDate.Value.Month;
+            selectedYear = filterDate.Value.Year;
+        }
+        else
+        {
+            selectedMonth = null;
+            selectedYear = null;
+        }
+    }
+
+    private void SyncFilterDateFromDropdowns()
+    {
+        if (selectedMonth.HasValue && selectedYear.HasValue)
+        {
+            filterDate = new DateTime(selectedYear.Value, selectedMonth.Value, 1); 
+        }
+        else
+        { 
+            filterDate = null;
+        }
+    }
+ 
 
     private async Task<List<SensorConfig>> LoadSensorsConfig()
     { 
@@ -180,6 +232,8 @@
             {
                 return;
             }
+
+            Console.WriteLine(filterDate);
 
             var results = await sensorDataService.GetReportByMonthAndSensorId(
                 filterDate.Value, 

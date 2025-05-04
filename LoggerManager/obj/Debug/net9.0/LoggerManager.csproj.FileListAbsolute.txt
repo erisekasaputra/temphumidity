@@ -77,3 +77,15 @@ C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\LoggerManager\
 C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\LoggerManager\obj\Debug\net9.0\refint\LoggerManager.dll
 C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\LoggerManager\obj\Debug\net9.0\LoggerManager.pdb
 C:\Users\Riyadi Jamin\Music\TempHumi\temperature_humidity_control\LoggerManager\obj\Debug\net9.0\ref\LoggerManager.dll
+C:\Users\Riyadi Jamin\Music\TempHumi\temphumidity\LoggerManager\bin\Debug\net9.0\LoggerManager.deps.json
+C:\Users\Riyadi Jamin\Music\TempHumi\temphumidity\LoggerManager\bin\Debug\net9.0\LoggerManager.dll
+C:\Users\Riyadi Jamin\Music\TempHumi\temphumidity\LoggerManager\bin\Debug\net9.0\LoggerManager.pdb
+C:\Users\Riyadi Jamin\Music\TempHumi\temphumidity\LoggerManager\obj\Debug\net9.0\LoggerManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Riyadi Jamin\Music\TempHumi\temphumidity\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfoInputs.cache
+C:\Users\Riyadi Jamin\Music\TempHumi\temphumidity\LoggerManager\obj\Debug\net9.0\LoggerManager.AssemblyInfo.cs
+C:\Users\Riyadi Jamin\Music\TempHumi\temphumidity\LoggerManager\obj\Debug\net9.0\LoggerManager.csproj.CoreCompileInputs.cache
+C:\Users\Riyadi Jamin\Music\TempHumi\temphumidity\LoggerManager\obj\Debug\net9.0\LoggerManager.sourcelink.json
+C:\Users\Riyadi Jamin\Music\TempHumi\temphumidity\LoggerManager\obj\Debug\net9.0\LoggerManager.dll
+C:\Users\Riyadi Jamin\Music\TempHumi\temphumidity\LoggerManager\obj\Debug\net9.0\refint\LoggerManager.dll
+C:\Users\Riyadi Jamin\Music\TempHumi\temphumidity\LoggerManager\obj\Debug\net9.0\LoggerManager.pdb
+C:\Users\Riyadi Jamin\Music\TempHumi\temphumidity\LoggerManager\obj\Debug\net9.0\ref\LoggerManager.dll

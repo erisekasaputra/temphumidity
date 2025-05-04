@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StreamGate.Worker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a594d996b45bfa58391b5403098d3177a7322f64")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d763f639e21a8ebaabdd9ba8314e998c145c93d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("StreamGate.Worker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StreamGate.Worker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
