@@ -232,9 +232,7 @@
             {
                 return;
             }
-
-            Console.WriteLine(filterDate);
-
+  
             var results = await sensorDataService.GetReportByMonthAndSensorId(
                 filterDate.Value, 
                 selectedSensorIdGuid.Value); 

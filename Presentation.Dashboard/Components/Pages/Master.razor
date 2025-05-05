@@ -74,16 +74,26 @@
                     </div>
                     <div class="form-group mt-2">
                         <label>Name</label>
-                        <input type="text" class="form-control" @bind="currentSensorData.Name" />
+                        <select class="form-select"
+                                @bind="currentSensorData.Name">
+                            <option value="">--</option>
+                            <option value="Temperature">Temperature</option>
+                            <option value="Humidity">Humidity</option> 
+                        </select>    
                     </div>
                     <div class="form-group mt-2">
                         <label>Location</label>
                         <input type="text" class="form-control" @bind="currentSensorData.Location" />
                     </div>
-                    <div class="form-group mt-2">
+                    <div class="form-group mt-2"> 
                         <label>Unit</label>
-                        <input type="text" class="form-control" @bind="currentSensorData.Unit" />
-                    </div>
+                        <select class="form-select"
+                                @bind="currentSensorData.Unit">
+                            <option value="">--</option>
+                            <option value="°C">°C</option>
+                            <option value="%">%</option> 
+                        </select>    
+                    </div> 
                     <div class="form-group mt-2">
                         <label>UCL</label>
                         <input type="number" class="form-control" @bind="currentSensorData.UCL" />
@@ -126,16 +136,26 @@
                     </div>
                     <div class="form-group mt-2">
                         <label>Name</label>
-                        <input type="text" class="form-control" @bind="currentSensorData.Name" />
+                        <select class="form-select w-auto"
+                                @bind="currentSensorData.Name">
+                            <option value="">--</option>
+                            <option value="Temperature">Temperature</option>
+                            <option value="Humidity">Humidity</option> 
+                        </select>    
                     </div>
                     <div class="form-group mt-2">
                         <label>Location</label>
                         <input type="text" class="form-control" @bind="currentSensorData.Location" />
                     </div>
-                    <div class="form-group mt-2">
+                    <div class="form-group mt-2"> 
                         <label>Unit</label>
-                        <input type="text" class="form-control" @bind="currentSensorData.Unit" />
-                    </div>
+                        <select class="form-select"
+                                @bind="currentSensorData.Unit">
+                            <option value="">--</option>
+                            <option value="°C">°C</option>
+                            <option value="%">%</option> 
+                        </select>    
+                    </div> 
                     <div class="form-group mt-2"> 
                         <label>UCL</label>
                         <input type="number" class="form-control" @bind="currentSensorData.UCL" />

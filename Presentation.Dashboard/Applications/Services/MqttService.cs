@@ -1,7 +1,9 @@
 using System.Collections.Concurrent;
 using System.Text.Json;
+using Assets.Domain.Domain.Entities;
 using MqttHub.Applications.Interfaces;
 using MQTTnet.Protocol;
+using Presentation.Dashboard.Applications.Interfaces;
 
 namespace Presentation.Dashboard.Applications.Services;
 
@@ -13,14 +15,15 @@ public class MqttService
     private readonly string _consumerGroup = "MonitorSensorGroup";
     private readonly string _topic = "monitor/sensor/#";
     private readonly ConcurrentDictionary<string, ConcurrentBag<Action<string, string, string>>> _sensorHandlers = new();
-
-
+    private readonly IRedisCacheService _redisCache;
     
     public MqttService(
         ILogger<MqttService> logger,
-        IMqttHubService _mqttHubService)
+        IMqttHubService _mqttHubService,
+        IRedisCacheService redisCache)
     {
-        _logger = logger;
+        _logger = logger; 
+        _redisCache = redisCache;
 
         _hub = _mqttHubService;
         _hub.OnMessageReceived += Hub_OnMessageReceived;
@@ -67,6 +70,28 @@ public class MqttService
     { 
         var handlers = _sensorHandlers.GetOrAdd(sensorId.ToString(), _ => []);
         handlers.Add(callback);
+        
+
+       
+
+        Task.Run(async() => 
+        { 
+            if (_sensorHandlers.TryGetValue(sensorId.ToString(), out var existingHandlers))
+            {
+                var sensor = await _redisCache.GetObject<Sensor>($"sensor/{sensorId}"); 
+ 
+                foreach (var handler in existingHandlers)
+                {  
+                    if (sensor is not null)
+                    {  
+                        handler.Invoke(
+                            $"monitor/sensor/{sensorId}", 
+                            sensorId.ToString(), JsonSerializer.Serialize(sensor)); 
+                    } 
+                }
+            } 
+        });
+
     }
 
     public void Unsubscribe(Guid sensorId, Action<string, string, string> callback)
