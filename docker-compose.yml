@@ -43,8 +43,8 @@ services:
       context: .
       dockerfile: StreamGate.Worker/Dockerfile 
     environment:
-      - DOTNET_ENVIRONMENT=Production
-      - ASPNETCORE_ENVIRONMENT=Production 
+      - DOTNET_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Development 
       - Redis__Configuration=redis-service:6379
       - Cassandra__ContactPoint=cassandra-service
       - MQTT__BrokerAddress=emqx-service
@@ -66,8 +66,8 @@ services:
     ports:
       - "5007:5007" 
     environment:
-      - DOTNET_ENVIRONMENT=Production
-      - ASPNETCORE_ENVIRONMENT=Production
+      - DOTNET_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:5007
       - Redis__Configuration=redis-service:6379
       - Cassandra__ContactPoint=cassandra-service

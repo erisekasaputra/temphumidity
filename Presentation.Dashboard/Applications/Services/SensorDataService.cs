@@ -8,6 +8,7 @@ using System.Data.Entity.Core;
 using Presentation.Dashboard.Applications.Dtos;
 using Presentation.Dashboard.Applications.Interfaces;
 using Assets.Domain.Domain.Enums;
+using Assets.Domain.Domain.Configurations;
 
 
 namespace Presentation.Dashboard.Applications.Services;
@@ -17,7 +18,6 @@ public class SensorDataService(
     ShiftService shiftService, 
     IRedisCacheService redisCache)
 {
-    private const int MAX_SENSOR = 30;
     private readonly AppDbContext _context = context;
     private readonly ShiftService _shiftService = shiftService;
     private readonly IRedisCacheService _redisCache = redisCache;
@@ -136,9 +136,10 @@ public class SensorDataService(
 
             var countSensorConfigs = await _context.SensorConfigs.CountAsync();
 
-            if (countSensorConfigs >= (MAX_SENSOR-28))
+            if (countSensorConfigs >= SensorConfiguration.MaxSensorLength)
             {
-                throw new InvalidOperationException($"Sensor quota number is exceeded. Maximum is {MAX_SENSOR-28} sensors can be registered.");
+                throw new InvalidOperationException(
+                    $"Sensor quota number is exceeded. Maximum is {SensorConfiguration.MaxSensorLength} sensors can be registered.");
             }
 
             var result = await _context.SensorConfigs.AddAsync(SensorConfig.Create(

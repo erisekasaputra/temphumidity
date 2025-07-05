@@ -26,7 +26,7 @@
   <ItemGroup>
     <Content Include="TemplateReport.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Content> 
   </ItemGroup>
 
   <PropertyGroup>

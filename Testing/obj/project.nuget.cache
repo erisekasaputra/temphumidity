@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7ar+fm7eD0c=",
+  "dgSpecHash": "F6WQPktVa/s=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Testing\\Testing.csproj",
+  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\Testing\\Testing.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],

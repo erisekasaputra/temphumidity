@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\StreamGate.Worker\\StreamGate.Worker.csproj": {}
+    "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\StreamGate.Worker\\StreamGate.Worker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Assets.Domain\\Assets.Domain.csproj": {
+    "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\Assets.Domain\\Assets.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Assets.Domain\\Assets.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\Assets.Domain\\Assets.Domain.csproj",
         "projectName": "Assets.Domain",
-        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Assets.Domain\\Assets.Domain.csproj",
+        "projectPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\Assets.Domain\\Assets.Domain.csproj",
         "packagesPath": "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Assets.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\Assets.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Riyadi Jamin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -65,18 +65,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj": {
+    "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\LoggerManager\\LoggerManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj",
+        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\LoggerManager\\LoggerManager.csproj",
         "projectName": "LoggerManager",
-        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj",
+        "projectPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\LoggerManager\\LoggerManager.csproj",
         "packagesPath": "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\obj\\",
+        "outputPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\LoggerManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Riyadi Jamin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -103,7 +103,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -124,18 +124,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\MqttHub\\MqttHub.csproj": {
+    "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\MqttHub\\MqttHub.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\MqttHub\\MqttHub.csproj",
+        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\MqttHub\\MqttHub.csproj",
         "projectName": "MqttHub",
-        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\MqttHub\\MqttHub.csproj",
+        "projectPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\MqttHub\\MqttHub.csproj",
         "packagesPath": "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\MqttHub\\obj\\",
+        "outputPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\MqttHub\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Riyadi Jamin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -150,8 +150,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj": {
-                "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj"
+              "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\LoggerManager\\LoggerManager.csproj": {
+                "projectPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\LoggerManager\\LoggerManager.csproj"
               }
             }
           }
@@ -166,7 +166,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -213,18 +213,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\StreamGate.Worker\\StreamGate.Worker.csproj": {
+    "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\StreamGate.Worker\\StreamGate.Worker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\StreamGate.Worker\\StreamGate.Worker.csproj",
+        "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\StreamGate.Worker\\StreamGate.Worker.csproj",
         "projectName": "StreamGate.Worker",
-        "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\StreamGate.Worker\\StreamGate.Worker.csproj",
+        "projectPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\StreamGate.Worker\\StreamGate.Worker.csproj",
         "packagesPath": "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\StreamGate.Worker\\obj\\",
+        "outputPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\StreamGate.Worker\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Riyadi Jamin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -239,14 +239,14 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Assets.Domain\\Assets.Domain.csproj": {
-                "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\Assets.Domain\\Assets.Domain.csproj"
+              "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\Assets.Domain\\Assets.Domain.csproj": {
+                "projectPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\Assets.Domain\\Assets.Domain.csproj"
               },
-              "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj": {
-                "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj"
+              "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\LoggerManager\\LoggerManager.csproj": {
+                "projectPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\LoggerManager\\LoggerManager.csproj"
               },
-              "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\MqttHub\\MqttHub.csproj": {
-                "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\MqttHub\\MqttHub.csproj"
+              "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\MqttHub\\MqttHub.csproj": {
+                "projectPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\MqttHub\\MqttHub.csproj"
               }
             }
           }
@@ -261,7 +261,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -316,7 +316,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

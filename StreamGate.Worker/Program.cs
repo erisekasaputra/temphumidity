@@ -7,12 +7,12 @@ using MqttHub.Entities.Models;
 using StreamGate.Worker.Application.Interfaces;
 using StreamGate.Worker.Application.Services;
 using StreamGate.Worker.Configuration;
-using StreamGate.Worker.Infrastructure;
-using StreamGate.Worker.Infrastructure.Cassandra.Interfaces;
-using StreamGate.Worker.Infrastructure.Cassandra.Services;
+using StreamGate.Worker.Infrastructure; 
 using StreamGate.Worker.Infrastructure.Redis.Interfaces;
 using StreamGate.Worker.Infrastructure.Redis.Services;
+using StreamGate.Worker.SeedWorks;
 using StreamGate.Worker.Workers;
+
 
 var builder = Host.CreateApplicationBuilder(args);
 
@@ -35,20 +35,21 @@ builder.Services.AddSingleton<IMqttHubService>(sp =>
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
+ 
 
-
-
-// builder.Services.AddSingleton<ICassandraService, CassandraService>();
-// builder.Services.AddSingleton<ICassandraDataService, CassandraDataService>(); 
-builder.Services.AddSingleton<IRedisService, RedisService>();
-builder.Services.AddSingleton<IRedisCacheService, RedisCacheService>(); 
-builder.Services.AddHostedService<SensorEventListener>();  
-
-if(builder.Environment.IsDevelopment())
+if (!await LicenseValidator.IsValid())
 {
-    builder.Services.AddHostedService<SensorEventPublisher>();  
-}
+    builder.Services.AddSingleton<IRedisService, RedisService>();
+    builder.Services.AddSingleton<IRedisCacheService, RedisCacheService>();
 
+    builder.Services.AddHostedService<SensorEventListener>();
+    builder.Services.AddHostedService<SensorSynchronizer>();
+
+    if (builder.Environment.IsDevelopment())
+    {
+        builder.Services.AddHostedService<SensorEventPublisher>();
+    }
+}
 
 var host = builder.Build();
 

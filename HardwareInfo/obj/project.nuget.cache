@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oU3UTD8EgEY=",
+  "dgSpecHash": "bfgnTjhqlYE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\HardwareInfo\\HardwareInfo.csproj",
+  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\HardwareInfo\\HardwareInfo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\system.codedom\\9.0.3\\system.codedom.9.0.3.nupkg.sha512",
     "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\system.management\\9.0.3\\system.management.9.0.3.nupkg.sha512"

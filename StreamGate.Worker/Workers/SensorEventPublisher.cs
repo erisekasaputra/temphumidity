@@ -18,17 +18,26 @@ public class SensorEventPublisher(ILogger<SensorEventPublisher> logger, IMqttHub
             {
                 var utcNow = DateTime.UtcNow; 
 
-                Guid sensorId1 = Guid.Parse("24ee31fd-971b-4cd3-a661-bb977c332d11"); 
+                Guid sensorId1 = Guid.Parse("fcf5d89e-c0d8-4785-8e54-54f217987798"); 
                 
                 Random rand = new();
 
                 var data1 = new 
                 {
                     SensorId = sensorId1, 
-                    SensorValue = rand.Next(80,120), 
+                    SensorValue = rand.Next(40,60), 
                     SensorTimeUtc = utcNow
                 };
  
+                
+                Guid sensorId2 = Guid.Parse("fcf5d89e-c0d8-4785-8e54-54f217987799");  
+
+                var data2 = new 
+                {
+                    SensorId = sensorId2, 
+                    SensorValue = rand.Next(10,20), 
+                    SensorTimeUtc = utcNow
+                };
  
 
                 await Task.Run(async () => 
@@ -41,7 +50,14 @@ public class SensorEventPublisher(ILogger<SensorEventPublisher> logger, IMqttHub
                             PayloadContentType.JSON,
                             true));  
                      
-
+                    await _hub.PublishAsync(
+                        new PublishOption(
+                            $"sensor/{sensorId2}", 
+                            MqttQualityOfServiceLevel.AtLeastOnce, 
+                            JsonSerializer.Serialize(data2), 
+                            PayloadContentType.JSON,
+                            true));  
+                     
                 }, stoppingToken).ConfigureAwait(false);
                  
                 await Task.Delay(1000, stoppingToken);

@@ -101,20 +101,12 @@ public class SensorEventListener : BackgroundService
     
     private async Task Hub_OnMessageReceived(string topic, string payload)
     { 
-        DateTime threshold = new(2025, 06, 26, 0, 0, 0); 
-        if (DateTime.Now > threshold)
-        {
-            return;
-        }
-
         try
         {  
             var request = JsonSerializer.Deserialize<StreamRequest>(payload) ?? throw new InvalidDataException();
 
-           
-
             if (!topic.Contains(request.SensorId.ToString()))
-            { 
+            {
                 return;
             } 
 

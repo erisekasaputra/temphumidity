@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "76IqhJCFTS0=",
+  "dgSpecHash": "cXRG52E6bD0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\StreamGate.Worker\\StreamGate.Worker.csproj",
+  "projectFilePath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\StreamGate.Worker\\StreamGate.Worker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

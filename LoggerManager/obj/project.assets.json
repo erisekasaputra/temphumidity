@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj",
+      "projectUniqueName": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\LoggerManager\\LoggerManager.csproj",
       "projectName": "LoggerManager",
-      "projectPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\LoggerManager.csproj",
+      "projectPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\LoggerManager\\LoggerManager.csproj",
       "packagesPath": "C:\\Users\\Riyadi Jamin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Riyadi Jamin\\Music\\TempHumi\\temphumidity\\LoggerManager\\obj\\",
+      "outputPath": "C:\\Users\\Riyadi Jamin\\Documents\\Projects\\temphumidity\\LoggerManager\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Riyadi Jamin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -44,7 +44,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

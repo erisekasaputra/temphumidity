@@ -33,4 +33,10 @@
     <ProjectReference Include="..\MqttHub\MqttHub.csproj" />
     <ProjectReference Include="..\Assets.Domain\Assets.Domain.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="license.key">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content> 
+  </ItemGroup>
 </Project>
